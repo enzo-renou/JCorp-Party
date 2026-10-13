@@ -63,6 +63,18 @@ const CATALOG = [
     ],
     Class: () => require('./mastergoon'),
   },
+  {
+    key: 'memeit', name: 'Make It Meme', emoji: '😂', color: '#ff9f1c', minPlayers: 2, scale: 0.005,
+    tagline: 'Légende les memes, vote pour les plus drôles',
+    desc: 'Chacun reçoit une image de meme et écrit la légende la plus drôle. Puis tout le monde vote 👍 / 😐 / 👎 sur chaque meme. Un « Meme Buddy » par manche pour partager les points.',
+    options: [
+      num('rounds', 'Manches', [1, 2, 3, 5], 3),
+      num('captionTime', 'Temps pour légender', [30, 60, 90, 120], 90, ' s'),
+      { key: 'mode', label: 'Mode', type: 'choice', default: 'normal', choices: [{ v: 'normal', label: 'Normal' }, { v: 'topics', label: 'Thèmes' }, { v: 'same', label: 'Même meme' }, { v: 'relaxed', label: 'Détente' }] },
+      { key: 'family', label: 'Mode famille (filtre les gros mots)', type: 'bool', default: false },
+    ],
+    Class: () => require('./memeit'),
+  },
 ];
 
 const byKey = Object.fromEntries(CATALOG.map((g) => [g.key, g]));

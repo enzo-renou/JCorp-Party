@@ -9,6 +9,7 @@ Jeu de soirée en ligne pour la JCorp : on rejoint un salon avec un **code à 4 
 | 🌍 Quiz Géo | 9 questions : 3 sur la carte (points selon la distance), 3 capitales, 3 drapeaux ; facile 1 pt, moyen 2 pts, difficile 3 pts |
 | 🕵️ L'Imposteur | Citoyens / imposteurs / M. White : indices, vote, réunion d'urgence |
 | 🎤 Mastergoon | « Ne dis pas la même chose que moi » : le maître part à 10 pts et en perd 1 si personne n'est éliminé |
+| 😂 Make It Meme | Image de meme + ta légende (éditeur de textes), vote 👍 😐 👎 sur chaque meme, Meme Buddy, 4 modes (Normal, Thèmes, Même meme, Détente) — règles de makeitmeme.com |
 
 ## 1. Lancer chez soi
 
@@ -58,4 +59,7 @@ Les ~80 questions photo (et les « 4 images, 1 mot ») utilisent l'image princip
 
 ## 6. Test automatique
 
-`npm test` joue une partie complète des 5 jeux avec des bots.
+`npm test` joue une partie complète des 6 jeux avec des bots.
+
+## Make It Meme : images
+Les ~100 images de memes sont dans `public/memes/` (liste dans `data/memes.json`, templates populaires d'Imgflip). Pour en ajouter : dépose l'image dans `public/memes/` et ajoute `{ "id": "mon-meme", "file": "mon-meme.jpg", "w": 600, "h": 600 }` dans `data/memes.json`.

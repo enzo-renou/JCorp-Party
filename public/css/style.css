@@ -380,3 +380,28 @@ label.field { display: block; font-size: .85rem; font-weight: 800; color: var(--
 .switch input:checked + .sl::after { transform: translateX(18px); }
 .switch input:focus-visible + .sl { outline: 3px solid var(--cyan); }
 .topbar { padding-right: 62px; }
+
+/* --- Make It Meme */
+.meme { position: relative; container-type: inline-size; width: 100%; max-width: 560px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #000; user-select: none; touch-action: none; }
+.meme.big { max-width: min(560px, 100%); }
+.meme.small { max-width: 100%; }
+.meme img { display: block; width: 100%; height: 100%; object-fit: fill; pointer-events: none; }
+.mbox { position: absolute; transform: translate(-50%, -50%); text-align: center; font-family: Anton, Impact, 'Arial Narrow Bold', 'Arial Black', sans-serif; text-transform: uppercase; line-height: 1.08; color: #fff; -webkit-text-stroke: .09em #000; paint-order: stroke fill; text-shadow: 0 .04em .06em #0008; word-break: break-word; letter-spacing: .01em; }
+.mbox.dark { color: #000; -webkit-text-stroke: .09em #fff; }
+.mbox.editable { cursor: grab; outline: 2px dashed transparent; border-radius: 4px; padding: 2px; }
+.mbox.editable:hover, .mbox.sel { outline-color: var(--yellow); }
+.mbox.empty { opacity: .55; }
+.me-stage { display: flex; justify-content: center; }
+.vote-stage { display: grid; grid-template-columns: minmax(0, 560px) minmax(220px, 1fr); gap: 18px; align-items: center; justify-content: center; margin-top: 12px; }
+@media (max-width: 760px) { .vote-stage { grid-template-columns: 1fr; } }
+.vbtns3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.vbtn { font-size: 2.2rem; padding: 14px 0; border-radius: 16px; border: 3px solid var(--line); background: var(--card2); cursor: pointer; transition: transform .1s; }
+.vbtn:hover:not(:disabled) { transform: translateY(-3px) scale(1.04); }
+.vbtn.up.on { background: #12402a; border-color: var(--green); }
+.vbtn.meh.on { background: #3a2f14; border-color: var(--yellow); }
+.vbtn.down.on { background: #4a1a26; border-color: var(--red); }
+.vbtn:disabled { opacity: .4; cursor: default; }
+.mscore { font-family: var(--display); font-weight: 800; font-size: 2.6rem; color: var(--yellow); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.gitem { display: flex; flex-direction: column; gap: 6px; }
+.neg { color: var(--red); }

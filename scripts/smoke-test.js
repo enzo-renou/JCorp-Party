@@ -86,6 +86,10 @@ class Bot {
       });
       if (g.phase === 'whiteGuess' && g.me?.isWhite) this.once(turn('wg'), () => this.act({ type: 'whiteGuess', text: 'nimportequoi' }));
     }
+    if (k === 'memeit') {
+      if (g.phase === 'creating' && g.myTpl && !g.ready) this.once(turn(`c${g.round}`), () => this.act({ type: 'submit', boxes: [{ t: `légende de ${this.me}`, x: 50, y: 10, s: 8, c: 'w', w: 80 }] }));
+      if (g.phase === 'voting' && !g.mine) this.once(turn(`v${g.round}-${g.idx}`), () => { this.act({ type: 'vote', v: 'up' }); if (g.idx === 0) this.act({ type: 'buddy' }); });
+    }
     if (k === 'mastergoon') {
       if (g.phase === 'answering') this.once(turn(`a${g.qIndex}`), () => {
         if (g.masterId === this.me) this.act({ type: 'answer', text: 'rouge' });
@@ -139,9 +143,9 @@ async function waitFor(pred, label, timeout = 20000) {
   ok(!!bad.error, 'un mauvais code est refusé');
   await waitFor(() => bots.every((b) => b.state?.players?.length === 4), 'tous les joueurs voient 4 joueurs');
   ok(bots[0].state.hostId === bots[0].me, 'le créateur est hôte');
-  bots[0].sock.emit('room:rounds', 5);
+  bots[0].sock.emit('room:rounds', 6);
   await sleep(80);
-  ok(bots[0].state.settings.rounds === 5, 'nombre de manches réglé à 5');
+  ok(bots[0].state.settings.rounds === 6, 'nombre de manches réglé à 6');
   const noStart = await bots[1].emit('room:start', {});
   ok(!!noStart.error, 'un non-hôte ne peut pas lancer');
 
@@ -179,6 +183,7 @@ async function waitFor(pred, label, timeout = 20000) {
     ['geo', {}],
     ['imposteur', { turnTime: 30, voteTime: 60, impostors: 1, mrWhite: false }],
     ['mastergoon', { answerTime: 10, maxQuestions: 5, joker: true }],
+    ['memeit', { rounds: 1, captionTime: 30, mode: 'normal', family: true }],
   ];
   const connected = bots;
   for (let r = 0; r < plan.length; r++) {
@@ -189,7 +194,7 @@ async function waitFor(pred, label, timeout = 20000) {
     const master = connected.find((b) => b.me === masterId);
     ok(!!master, `le maître du jeu est ${connected[0].state.players.find((p) => p.id === masterId)?.name}`);
     const cat = connected[0].state.catalog;
-    ok(cat.length === 5, 'catalogue de 5 jeux');
+    ok(cat.length === 6, 'catalogue de 6 jeux');
     // un non-maître ne peut pas choisir
     const other = connected.find((b) => b.me !== masterId);
     const rej = await other.emit('room:pick', { key });

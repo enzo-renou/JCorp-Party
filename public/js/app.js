@@ -9,6 +9,7 @@ const GAME_MODULES = {
   geo: () => import('./games/geo.js'),
   imposteur: () => import('./games/imposteur.js'),
   mastergoon: () => import('./games/mastergoon.js'),
+  memeit: () => import('./games/memeit.js'),
 };
 
 const app = document.getElementById('app');
@@ -147,8 +148,8 @@ function Home() {
 
   const floaters = ['🎨', '🧠', '🌍', '🕵️', '🎤', '🎉', '🏆', '🎲'].map((e, i) => h('span', { class: 'floater', style: { left: `${6 + (i * 12.5) % 90}%`, animationDuration: `${14 + (i * 3) % 9}s`, animationDelay: `${-i * 2.3}s`, fontSize: `${1.6 + (i % 3) * 0.7}rem` } }, e));
   const el = h('div', { class: 'home' }, h('div', { class: 'aurora' }, h('i'), h('i'), h('i')), h('div', { class: 'floaters' }, floaters), h('div', { class: 'home-card' },
-    h('div', { class: 'hero' }, h('h1', {}, h('b', {}, 'JCorp'), ' ', h('i', {}, 'Party')), h('p', {}, '5 mini-jeux · 1 maître du jeu par manche · 0 pitié 🎉'),
-      h('div', { class: 'gchips' }, [['🎨', 'Skribbl'], ['🧠', 'Culture G'], ['🌍', 'Géo'], ['🕵️', 'Imposteur'], ['🎤', 'Mastergoon']].map(([e, n], i) => h('span', { style: { animationDelay: `${i * 90}ms` } }, e, ' ', n)))),
+    h('div', { class: 'hero' }, h('h1', {}, h('b', {}, 'JCorp'), ' ', h('i', {}, 'Party')), h('p', {}, '6 mini-jeux · 1 maître du jeu par manche · 0 pitié 🎉'),
+      h('div', { class: 'gchips' }, [['🎨', 'Skribbl'], ['🧠', 'Culture G'], ['🌍', 'Géo'], ['🕵️', 'Imposteur'], ['🎤', 'Mastergoon'], ['😂', 'Make It Meme']].map(([e, n], i) => h('span', { style: { animationDelay: `${i * 90}ms` } }, e, ' ', n)))),
     h('div', { class: 'card col' },
       avBox,
       h('div', {}, h('label', { class: 'field' }, 'Pseudo'), nameIn),
@@ -311,7 +312,7 @@ function Final() {
     const top = ranking.slice(0, 3);
     const order = top.length >= 3 ? [top[1], top[0], top[2]] : top.length === 2 ? [top[1], top[0]] : top;
     const cls = (p) => `p${top.indexOf(p) + 1}`;
-    const games = { skribbl: '🎨 Skribbl', culture: '🧠 Culture G', geo: '🌍 Quiz Géo', imposteur: '🕵️ L’Imposteur', mastergoon: '🎤 Mastergoon' };
+    const games = { skribbl: '🎨 Skribbl', culture: '🧠 Culture G', geo: '🌍 Quiz Géo', imposteur: '🕵️ L’Imposteur', mastergoon: '🎤 Mastergoon', memeit: '😂 Make It Meme' };
     const players = byId(state);
     if (!celebrated) { celebrated = true; confetti(); }
     fill(el, h('div', { class: 'card col', style: { maxWidth: '760px', margin: '0 auto' } },
