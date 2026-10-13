@@ -1,0 +1,345 @@
+[
+{
+"q": "Quel rappeur français est surnommé le « Duc de Boulogne » ?",
+"a": [
+"Booba",
+"B2O"
+]
+},
+{
+"q": "Qui chante « Djadja » ?",
+"a": [
+"Aya Nakamura",
+"Aya"
+]
+},
+{
+"q": "Quel artiste belge a sorti « Papaoutai » ?",
+"a": [
+"Stromae"
+]
+},
+{
+"q": "Comment s'appelle le groupe de K-pop composé de Jisoo, Jennie, Rosé et Lisa ?",
+"a": [
+"Blackpink",
+"BLACKPINK"
+]
+},
+{
+"q": "Quel groupe de K-pop compte les membres RM, Jin, Suga, J-Hope, Jimin, V et Jungkook ?",
+"a": [
+"BTS"
+]
+},
+{
+"q": "Quelle chanteuse américaine a lancé l'« Eras Tour » ?",
+"a": [
+"Taylor Swift",
+"Taylor"
+]
+},
+{
+"q": "Qui chante « Shape of You » ?",
+"a": [
+"Ed Sheeran",
+"Sheeran"
+]
+},
+{
+"q": "Quelle chanteuse a sorti l'album « Lemonade » ?",
+"a": [
+"Beyoncé",
+"Beyonce"
+]
+},
+{
+"q": "Quel rappeur américain a sorti l'album « Astroworld » ?",
+"a": [
+"Travis Scott"
+]
+},
+{
+"q": "Quel rappeur est connu pour « Lose Yourself » et son alter ego Slim Shady ?",
+"a": [
+"Eminem"
+]
+},
+{
+"q": "Quel duo français de musique électronique porte des casques de robots ?",
+"a": [
+"Daft Punk"
+]
+},
+{
+"q": "Qui est le « roi de la pop » ?",
+"a": [
+"Michael Jackson",
+"MJ"
+]
+},
+{
+"q": "Quel groupe britannique a chanté « Bohemian Rhapsody » ?",
+"a": [
+"Queen"
+]
+},
+{
+"q": "Qui est le chanteur du groupe Queen ?",
+"a": [
+"Freddie Mercury",
+"Mercury"
+]
+},
+{
+"q": "Quel rappeur marseillais a sorti « Tchikita » ?",
+"a": [
+"Jul",
+"JUL"
+]
+},
+{
+"q": "Quel chanteur d'origine congolaise, ex-Sexion d'Assaut, a chanté « Bella » ?",
+"a": [
+"Maître Gims",
+"Gims",
+"GIMS"
+]
+},
+{
+"q": "Quel rappeur français a sorti l'album « La Fête est finie » ?",
+"a": [
+"Orelsan"
+]
+},
+{
+"q": "Quelle chanteuse chante « Flowers » et « Used to Be Young » ?",
+"a": [
+"Miley Cyrus",
+"Miley"
+]
+},
+{
+"q": "De quel pays vient le chanteur Bad Bunny ?",
+"a": [
+"Porto Rico"
+]
+},
+{
+"q": "Quelle chanteuse a sorti l'album « 30 » après « 25 » ?",
+"a": [
+"Adele"
+]
+},
+{
+"q": "Quel rappeur a épousé Kim Kardashian en 2014 ?",
+"a": [
+"Kanye West",
+"Kanye",
+"Ye"
+]
+},
+{
+"q": "Qui a chanté « Despacito » avec Daddy Yankee ?",
+"a": [
+"Luis Fonsi",
+"Fonsi"
+]
+},
+{
+"q": "Quelle plateforme suédoise de streaming musical est symbolisée par un logo vert ?",
+"a": [
+"Spotify"
+]
+},
+{
+"q": "Quel groupe de rock a chanté « Smells Like Teen Spirit » ?",
+"a": [
+"Nirvana"
+]
+},
+{
+"q": "Quel est le vrai nom du chanteur The Weeknd ?",
+"a": [
+"Abel Tesfaye",
+"Tesfaye",
+"Abel"
+]
+},
+{
+"q": "Quel instrument joue Jimi Hendrix ?",
+"a": [
+"Guitare",
+"Guitare électrique"
+]
+},
+{
+"t": "image",
+"q": "Qui est cet artiste ?",
+"wiki": "Booba",
+"a": [
+"Booba",
+"B2O"
+],
+"hint": "Rappeur français du 92"
+},
+{
+"t": "image",
+"q": "Qui est cette artiste ?",
+"wiki": "Aya_Nakamura",
+"a": [
+"Aya Nakamura",
+"Aya"
+],
+"hint": "Chanteuse française de « Djadja »"
+},
+{
+"t": "image",
+"q": "Qui est cet artiste ?",
+"wiki": "Stromae",
+"a": [
+"Stromae"
+],
+"hint": "Chanteur belge de « Papaoutai »"
+},
+{
+"t": "image",
+"q": "Qui est cet artiste ?",
+"wiki": "Orelsan",
+"a": [
+"Orelsan"
+],
+"hint": "Rappeur normand de « Basique »"
+},
+{
+"t": "image",
+"q": "Qui est cette artiste ?",
+"wiki": "Taylor_Swift",
+"a": [
+"Taylor Swift",
+"Taylor"
+],
+"hint": "Chanteuse américaine de l'Eras Tour"
+},
+{
+"q": "Quel groupe américain a chanté « Hotel California » ?",
+"a": [
+"Eagles",
+"The Eagles"
+]
+},
+{
+"q": "Quel rappeur français a sorti l'album « Ipséité » ?",
+"a": [
+"Damso"
+]
+},
+{
+"q": "Quelle chanteuse a sorti l'album « Folklore » en 2020 ?",
+"a": [
+"Taylor Swift"
+]
+},
+{
+"q": "Quel chanteur canadien a sorti « Sorry » et « Love Yourself » ?",
+"a": [
+"Justin Bieber",
+"Bieber"
+]
+},
+{
+"q": "Quel duo français a sorti l'album « Random Access Memories » ?",
+"a": [
+"Daft Punk"
+]
+},
+{
+"q": "Quel rappeur américain est surnommé « Slim Shady » ?",
+"a": [
+"Eminem"
+]
+},
+{
+"q": "Quelle chanteuse a sorti l'album « Renaissance » en 2022 ?",
+"a": [
+"Beyoncé",
+"Beyonce"
+]
+},
+{
+"t": "image",
+"q": "Qui est cette artiste ?",
+"wiki": "Dua_Lipa",
+"a": [
+"Dua Lipa"
+],
+"hint": "Chanteuse britannique de « Levitating »"
+},
+{
+"t": "image",
+"q": "Qui est cette artiste ?",
+"wiki": "Billie_Eilish",
+"a": [
+"Billie Eilish",
+"Eilish"
+],
+"hint": "Chanteuse américaine de « Bad Guy »"
+},
+{
+"t": "image",
+"q": "Qui est cet artiste ?",
+"wiki": "Drake_(rappeur)",
+"a": [
+"Drake"
+],
+"hint": "Rappeur canadien de « God's Plan »"
+},
+{
+"t": "image",
+"q": "Qui est cet artiste ?",
+"wiki": "Eminem",
+"a": [
+"Eminem",
+"Slim Shady"
+],
+"hint": "Rappeur américain de Détroit"
+},
+{
+"t": "image",
+"q": "Qui est cette artiste ?",
+"wiki": "Rihanna",
+"a": [
+"Rihanna"
+],
+"hint": "Chanteuse de la Barbade, « Umbrella »"
+},
+{
+"t": "image",
+"q": "Qui est cet artiste ?",
+"wiki": "Ed_Sheeran",
+"a": [
+"Ed Sheeran",
+"Sheeran"
+],
+"hint": "Chanteur britannique roux de « Shape of You »"
+},
+{
+"t": "image",
+"q": "Qui est cette artiste ?",
+"wiki": "Ariana_Grande",
+"a": [
+"Ariana Grande",
+"Grande"
+],
+"hint": "Chanteuse américaine à la queue de cheval haute"
+},
+{
+"t": "image",
+"q": "Qui est cet artiste ?",
+"wiki": "Nekfeu",
+"a": [
+"Nekfeu"
+],
+"hint": "Rappeur français ex-1995 et S-Crew"
+}
+]

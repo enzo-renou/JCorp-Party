@@ -1,0 +1,477 @@
+[
+{
+"q": "Quel pays a remporté la Coupe du monde 2018 ?",
+"a": [
+"France",
+"Les Bleus"
+]
+},
+{
+"q": "Quel pays a remporté la Coupe du monde 2022 au Qatar ?",
+"a": [
+"Argentine"
+]
+},
+{
+"q": "Quel pays a remporté l'Euro 2024 ?",
+"a": [
+"Espagne"
+]
+},
+{
+"q": "Dans quel club Lionel Messi a-t-il passé la majorité de sa carrière ?",
+"a": [
+"FC Barcelone",
+"Barcelone",
+"Barça"
+]
+},
+{
+"q": "Quel joueur a donné le coup de tête à Materazzi en finale de la Coupe du monde 2006 ?",
+"a": [
+"Zidane",
+"Zinédine Zidane"
+]
+},
+{
+"q": "Quel club joue ses matchs à domicile au Parc des Princes ?",
+"a": [
+"PSG",
+"Paris Saint-Germain",
+"Paris"
+]
+},
+{
+"q": "Quel club joue au stade Santiago Bernabéu ?",
+"a": [
+"Real Madrid",
+"Real"
+]
+},
+{
+"q": "Quel est le surnom du stade de Manchester United ?",
+"a": [
+"Old Trafford"
+]
+},
+{
+"q": "Quel club anglais est surnommé les Reds ?",
+"a": [
+"Liverpool"
+]
+},
+{
+"q": "Comment s'appelle le stade du FC Barcelone ?",
+"a": [
+"Camp Nou",
+"Spotify Camp Nou"
+]
+},
+{
+"q": "Combien de joueurs y a-t-il sur le terrain pour une équipe de football ?",
+"a": [
+"11",
+"onze"
+]
+},
+{
+"q": "Quel pays a remporté le plus de Coupes du monde de football ?",
+"a": [
+"Brésil"
+]
+},
+{
+"q": "Combien de Coupes du monde le Brésil a-t-il gagnées ?",
+"a": [
+"5",
+"cinq"
+]
+},
+{
+"q": "Lev Yachine, seul gardien à avoir remporté le Ballon d'Or, jouait pour quel pays ?",
+"a": [
+"URSS",
+"Union soviétique",
+"Russie"
+]
+},
+{
+"q": "Quel numéro portait Kylian Mbappé en équipe de France ?",
+"a": [
+"10",
+"dix"
+]
+},
+{
+"q": "Quel attaquant norvégien joue à Manchester City et marque énormément de buts ?",
+"a": [
+"Haaland",
+"Erling Haaland"
+]
+},
+{
+"q": "Quel joueur a remporté le Ballon d'Or 2022 ?",
+"a": [
+"Benzema",
+"Karim Benzema"
+]
+},
+{
+"q": "Quel joueur argentin a remporté le Ballon d'Or le plus de fois ?",
+"a": [
+"Messi",
+"Lionel Messi"
+]
+},
+{
+"q": "Quel entraîneur dirige l'équipe de France depuis 2012 ?",
+"a": [
+"Deschamps",
+"Didier Deschamps"
+]
+},
+{
+"q": "Quel joueur surnommé « CR7 » joue (ou a joué) à la Juventus, au Real Madrid et à Manchester United ?",
+"a": [
+"Cristiano Ronaldo",
+"Ronaldo"
+]
+},
+{
+"q": "Dans quelle ville se trouve le stade de Wembley ?",
+"a": [
+"Londres"
+]
+},
+{
+"q": "Quelle équipe a perdu 7-1 contre l'Allemagne en demi-finale de la Coupe du monde 2014 ?",
+"a": [
+"Brésil"
+]
+},
+{
+"q": "Quel joueur français a inscrit un triplé en finale de la Coupe du monde 2022 ?",
+"a": [
+"Mbappé",
+"Kylian Mbappé"
+]
+},
+{
+"q": "Quel club français a remporté la Ligue des champions en 1993 ?",
+"a": [
+"Marseille",
+"OM",
+"Olympique de Marseille"
+]
+},
+{
+"q": "Quel club français a remporté la Ligue des champions en 2025 ?",
+"a": [
+"PSG",
+"Paris Saint-Germain",
+"Paris"
+]
+},
+{
+"q": "Comment s'appelle la mascotte des Bleus pour l'Euro 2016, un coq ?",
+"a": [
+"Super Victor",
+"Victor"
+]
+},
+{
+"q": "Quelle est la couleur du maillot de l'équipe des Pays-Bas ?",
+"a": [
+"Orange"
+]
+},
+{
+"q": "Quel joueur de 17 ans a brillé à l'Euro 2024 avec l'Espagne ?",
+"a": [
+"Lamine Yamal",
+"Yamal"
+]
+},
+{
+"q": "Quel club anglais est surnommé les « Red Devils » ?",
+"a": [
+"Manchester United",
+"Man United"
+]
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Kylian_Mbappé",
+"a": [
+"Mbappé",
+"Kylian Mbappé"
+],
+"hint": "Attaquant français, champion du monde 2018"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Lionel_Messi",
+"a": [
+"Messi",
+"Lionel Messi"
+],
+"hint": "Légende argentine, champion du monde 2022"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Cristiano_Ronaldo",
+"a": [
+"Ronaldo",
+"Cristiano Ronaldo",
+"CR7"
+],
+"hint": "Légende portugaise surnommée CR7"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Zinédine_Zidane",
+"a": [
+"Zidane",
+"Zinédine Zidane"
+],
+"hint": "Meneur de jeu des Bleus de 98, devenu entraîneur"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Neymar",
+"a": [
+"Neymar",
+"Neymar Jr"
+],
+"hint": "Attaquant brésilien passé par Barcelone et le PSG"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Karim_Benzema",
+"a": [
+"Benzema",
+"Karim Benzema"
+],
+"hint": "Ballon d'Or 2022, longtemps au Real Madrid"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Antoine_Griezmann",
+"a": [
+"Griezmann",
+"Antoine Griezmann"
+],
+"hint": "Attaquant français de l'Atlético de Madrid"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Erling_Haaland",
+"a": [
+"Haaland",
+"Erling Haaland"
+],
+"hint": "Attaquant norvégien, machine à buts"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Thierry_Henry",
+"a": [
+"Henry",
+"Thierry Henry"
+],
+"hint": "Légende d'Arsenal et des Bleus"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Ronaldinho",
+"a": [
+"Ronaldinho"
+],
+"hint": "Magicien brésilien du Barça, grand sourire"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Lamine_Yamal",
+"a": [
+"Yamal",
+"Lamine Yamal"
+],
+"hint": "Jeune prodige espagnol du FC Barcelone"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Ousmane_Dembélé",
+"a": [
+"Dembélé",
+"Ousmane Dembélé"
+],
+"hint": "Ailier français du PSG"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Paul_Pogba",
+"a": [
+"Pogba",
+"Paul Pogba"
+],
+"hint": "Milieu français champion du monde 2018"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "N'Golo_Kanté",
+"a": [
+"Kanté",
+"N'Golo Kanté",
+"Ngolo Kanté"
+],
+"hint": "Milieu récupérateur français champion du monde 2018"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Zlatan_Ibrahimović",
+"a": [
+"Zlatan",
+"Ibrahimović",
+"Ibrahimovic",
+"Zlatan Ibrahimović"
+],
+"hint": "Attaquant suédois très sûr de lui"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Mohamed_Salah",
+"a": [
+"Salah",
+"Mohamed Salah"
+],
+"hint": "Roi égyptien de Liverpool"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Vinícius_Júnior",
+"a": [
+"Vinicius",
+"Vinícius Júnior",
+"Vini Jr",
+"Vinicius Junior"
+],
+"hint": "Ailier brésilien du Real Madrid"
+},
+{
+"t": "image",
+"q": "Qui est ce joueur ?",
+"wiki": "Diego_Maradona",
+"a": [
+"Maradona",
+"Diego Maradona"
+],
+"hint": "Légende argentine de la « main de Dieu »"
+},
+{
+"q": "Quel pays a remporté la Coupe du monde 2014 ?",
+"a": [
+"Allemagne"
+]
+},
+{
+"q": "Quel joueur français a remporté le Ballon d'or 2022 ?",
+"a": [
+"Karim Benzema",
+"Benzema"
+]
+},
+{
+"q": "Quel club a remporté la Ligue des champions 2023 ?",
+"a": [
+"Manchester City",
+"City"
+]
+},
+{
+"q": "Quel club a remporté la Ligue des champions 2024 ?",
+"a": [
+"Real Madrid",
+"Real"
+]
+},
+{
+"q": "Quel joueur est surnommé « CR7 » ?",
+"a": [
+"Cristiano Ronaldo",
+"Ronaldo"
+]
+},
+{
+"q": "Quel gardien français a été champion du monde 2018 et capitaine des Bleus ?",
+"a": [
+"Hugo Lloris",
+"Lloris"
+]
+},
+{
+"q": "Dans quel stade joue le FC Barcelone à domicile ?",
+"a": [
+"Camp Nou",
+"Spotify Camp Nou"
+]
+},
+{
+"q": "Quel club anglais joue à Anfield ?",
+"a": [
+"Liverpool"
+]
+},
+{
+"q": "Quel joueur norvégien a rejoint Manchester City en 2022 et marque énormément de buts ?",
+"a": [
+"Erling Haaland",
+"Haaland"
+]
+},
+{
+"q": "Quel Français a marqué un triplé en finale de la Coupe du monde 2022 ?",
+"a": [
+"Kylian Mbappé",
+"Mbappé",
+"Mbappe"
+]
+},
+{
+"q": "Quel club de Ligue 1 est surnommé « l'OM » ?",
+"a": [
+"Marseille",
+"Olympique de Marseille"
+]
+},
+{
+"q": "Quel entraîneur a dirigé les Bleus lors de la Coupe du monde 2018 ?",
+"a": [
+"Didier Deschamps",
+"Deschamps"
+]
+},
+{
+"q": "Quel club italien est surnommé « la Vieille Dame » ?",
+"a": [
+"Juventus",
+"Juve"
+]
+}
+]

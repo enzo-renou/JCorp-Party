@@ -1,0 +1,389 @@
+[
+{
+"q": "Quel est le plat national italien à base de pâte, de tomate et de mozzarella ?",
+"a": [
+"Pizza",
+"La pizza"
+]
+},
+{
+"q": "De quel pays vient le sushi ?",
+"a": [
+"Japon"
+]
+},
+{
+"q": "De quel pays vient la raclette ?",
+"a": [
+"Suisse"
+]
+},
+{
+"q": "Quel est l'ingrédient principal du guacamole ?",
+"a": [
+"Avocat",
+"L'avocat",
+"Avocats"
+]
+},
+{
+"q": "De quel pays vient le kebab, la viande qui tourne sur une broche verticale ?",
+"a": [
+"Turquie"
+]
+},
+{
+"q": "Quelle boisson est faite à base de grains de cacao, très populaire au petit-déjeuner ?",
+"a": [
+"Chocolat chaud",
+"Chocolat",
+"Cacao"
+]
+},
+{
+"q": "Quel est le fruit le plus consommé au monde, jaune et courbé ?",
+"a": [
+"Banane",
+"La banane"
+]
+},
+{
+"q": "Combien de côtés a un hexagone ?",
+"a": [
+"6",
+"six"
+]
+},
+{
+"q": "Combien font 7 × 8 ?",
+"a": [
+"56",
+"cinquante-six"
+]
+},
+{
+"q": "Combien font 12 × 12 ?",
+"a": [
+"144"
+]
+},
+{
+"q": "Quel est le chiffre romain pour 50 ?",
+"a": [
+"L"
+]
+},
+{
+"q": "Combien y a-t-il de jours dans une année bissextile ?",
+"a": [
+"366"
+]
+},
+{
+"q": "Combien de minutes y a-t-il dans une heure et demie ?",
+"a": [
+"90",
+"quatre-vingt-dix"
+]
+},
+{
+"q": "Quelle est la monnaie du Royaume-Uni ?",
+"a": [
+"Livre sterling",
+"Livre",
+"Pound",
+"GBP"
+]
+},
+{
+"q": "Quelle est la monnaie du Japon ?",
+"a": [
+"Yen",
+"Le yen"
+]
+},
+{
+"q": "Quel animal est le symbole du WWF ?",
+"a": [
+"Panda",
+"Panda géant",
+"Le panda"
+]
+},
+{
+"q": "Quel est le seul mammifère capable de voler ?",
+"a": [
+"Chauve-souris",
+"La chauve-souris"
+]
+},
+{
+"q": "Quel animal produit le miel ?",
+"a": [
+"Abeille",
+"L'abeille",
+"Les abeilles",
+"Abeilles"
+]
+},
+{
+"q": "Quel animal dort debout et a des rayures noires et blanches ?",
+"a": [
+"Zèbre",
+"Le zèbre"
+]
+},
+{
+"q": "Combien de cœurs a une pieuvre ?",
+"a": [
+"3",
+"trois"
+]
+},
+{
+"q": "Quelle est la couleur du lait de coco ?",
+"a": [
+"Blanc",
+"Blanche"
+]
+},
+{
+"q": "Quelle ville est surnommée la Grosse Pomme, ou Big Apple ?",
+"a": [
+"New York",
+"New York City",
+"NYC"
+]
+},
+{
+"q": "Quel monument parisien est surnommé la Dame de fer ?",
+"a": [
+"Tour Eiffel",
+"La Tour Eiffel"
+]
+},
+{
+"q": "Quel reporter belge à la houppe voyage avec son chien Milou ?",
+"a": [
+"Tintin"
+]
+},
+{
+"q": "Quel gaulois est le héros de la BD avec son ami Obélix ?",
+"a": [
+"Astérix",
+"Asterix"
+]
+},
+{
+"q": "Quelle marque de sneakers a un logo en forme de virgule (« swoosh ») ?",
+"a": [
+"Nike"
+]
+},
+{
+"q": "Quelle marque de sport a trois bandes comme logo ?",
+"a": [
+"Adidas"
+]
+},
+{
+"q": "Quelle marque de luxe a un logo composé de deux C entrelacés ?",
+"a": [
+"Chanel"
+]
+},
+{
+"q": "Quelle enseigne de restauration rapide a des arches dorées en forme de M ?",
+"a": [
+"McDonald's",
+"McDonalds",
+"Mcdo",
+"McDo"
+]
+},
+{
+"q": "Quelle boisson pétillante a été créée à Atlanta et est de couleur brune ?",
+"a": [
+"Coca-Cola",
+"Coca",
+"Coca Cola"
+]
+},
+{
+"q": "Quelle marque de jouets en briques emboîtables est danoise ?",
+"a": [
+"Lego",
+"LEGO"
+]
+},
+{
+"q": "Quel jeu de société permet d'acheter des rues et de construire des hôtels ?",
+"a": [
+"Monopoly",
+"Le Monopoly"
+]
+},
+{
+"q": "Dans quel jeu de cartes y a-t-il des « Uno » à crier avant la dernière carte ?",
+"a": [
+"Uno",
+"UNO"
+]
+},
+{
+"q": "Combien de cases y a-t-il sur un échiquier ?",
+"a": [
+"64",
+"soixante-quatre"
+]
+},
+{
+"q": "Quelle pièce du jeu d'échecs ne peut aller qu'en avant, une case à la fois ?",
+"a": [
+"Pion",
+"Le pion"
+]
+},
+{
+"q": "Quelle est la capitale de la France ?",
+"a": [
+"Paris"
+]
+},
+{
+"q": "Combien de couleurs y a-t-il dans un arc-en-ciel ?",
+"a": [
+"7",
+"Sept"
+]
+},
+{
+"q": "Quel est l'animal terrestre le plus rapide ?",
+"a": [
+"Le guépard",
+"Guépard",
+"Guepard"
+]
+},
+{
+"q": "Quelle boisson est faite à base de grains de café ?",
+"a": [
+"Le café",
+"Café",
+"Cafe"
+]
+},
+{
+"q": "Quel pays est célèbre pour les sushis ?",
+"a": [
+"Le Japon",
+"Japon"
+]
+},
+{
+"q": "Quel est le plus grand océan du monde ?",
+"a": [
+"Le Pacifique",
+"Pacifique",
+"Océan Pacifique"
+]
+},
+{
+"q": "Quel fruit est jaune et préféré des singes ?",
+"a": [
+"La banane",
+"Banane"
+]
+},
+{
+"q": "Quelle est la monnaie utilisée en France ?",
+"a": [
+"L'euro",
+"Euro",
+"Euros"
+]
+},
+{
+"t": "image",
+"q": "Quel est ce monument ?",
+"wiki": "Tour_Eiffel",
+"a": [
+"Tour Eiffel",
+"La Tour Eiffel"
+],
+"hint": "Symbole de Paris"
+},
+{
+"t": "image",
+"q": "Quel est ce monument ?",
+"wiki": "Statue_de_la_Liberté",
+"a": [
+"Statue de la Liberté",
+"La Statue de la Liberté"
+],
+"hint": "Cadeau de la France aux États-Unis"
+},
+{
+"t": "image",
+"q": "Quel est ce monument ?",
+"wiki": "Colisée",
+"a": [
+"Colisée",
+"Le Colisée"
+],
+"hint": "Amphithéâtre antique de Rome"
+},
+{
+"t": "image",
+"q": "Quel est ce monument ?",
+"wiki": "Taj_Mahal",
+"a": [
+"Taj Mahal",
+"Le Taj Mahal"
+],
+"hint": "Mausolée de marbre blanc en Inde"
+},
+{
+"t": "image",
+"q": "Quel est ce monument ?",
+"wiki": "Sagrada_Família",
+"a": [
+"Sagrada Família",
+"Sagrada Familia",
+"La Sagrada Familia"
+],
+"hint": "Basilique de Gaudí à Barcelone"
+},
+{
+"t": "image",
+"q": "Quel est ce site ?",
+"wiki": "Machu_Picchu",
+"a": [
+"Machu Picchu"
+],
+"hint": "Cité inca perchée au Pérou"
+},
+{
+"t": "image",
+"q": "Quel est ce monument ?",
+"wiki": "Big_Ben",
+"a": [
+"Big Ben",
+"Elizabeth Tower"
+],
+"hint": "Célèbre horloge de Londres"
+},
+{
+"t": "image",
+"q": "Quel est ce monument ?",
+"wiki": "Pyramides_de_Gizeh",
+"a": [
+"Pyramides de Gizeh",
+"Pyramides",
+"Les Pyramides",
+"Pyramide de Khéops"
+],
+"hint": "Merveille de l'Égypte antique"
+}
+]

@@ -1,0 +1,33 @@
+{
+  "name": "jcorp-party",
+  "version": "1.0.0",
+  "description": "JCorp Party - jeu de soirée en ligne",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "build:geo": "node scripts/build-geo.js",
+    "test": "node scripts/smoke-test.js",
+    "check": "node scripts/check-data.js",
+    "photos": "node scripts/fetch-photos.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.8.2",
+    "express": "^5.3.0",
+    "flag-icons": "^7.5.0",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.4",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  },
+  "devDependencies": {
+    "socket.io-client": "^4.8.4",
+    "world-countries": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

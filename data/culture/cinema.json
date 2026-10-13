@@ -1,0 +1,444 @@
+[
+{
+"q": "Quel acteur joue Jack Sparrow dans Pirates des Caraïbes ?",
+"a": [
+"Johnny Depp",
+"Depp"
+]
+},
+{
+"q": "Comment s'appelle le lion dans Le Roi Lion ?",
+"a": [
+"Simba"
+]
+},
+{
+"q": "Dans quel film entend-on « Je suis ton père » ?",
+"a": [
+"Star Wars",
+"L'Empire contre-attaque",
+"Star Wars 5"
+]
+},
+{
+"q": "Quel réalisateur a tourné Inception et Interstellar ?",
+"a": [
+"Christopher Nolan",
+"Nolan"
+]
+},
+{
+"q": "Quel est le prénom du petit sorcier à lunettes de J.K. Rowling ?",
+"a": [
+"Harry",
+"Harry Potter"
+]
+},
+{
+"q": "Dans la série Stranger Things, comment s'appelle la fille aux pouvoirs télékinésiques ?",
+"a": [
+"Onze",
+"Eleven",
+"Eleven (Onze)"
+]
+},
+{
+"q": "Quelle série Netflix coréenne met en scène des jeux d'enfants mortels avec des survêtements verts ?",
+"a": [
+"Squid Game"
+]
+},
+{
+"q": "Quel film d'animation raconte l'histoire d'un poisson-clown à la recherche de son fils ?",
+"a": [
+"Le Monde de Nemo",
+"Nemo"
+]
+},
+{
+"q": "Qui joue Iron Man dans les films Marvel ?",
+"a": [
+"Robert Downey Jr",
+"Robert Downey Junior",
+"Downey Jr"
+]
+},
+{
+"q": "Comment s'appelle le méchant principal de Avengers : Infinity War ?",
+"a": [
+"Thanos"
+]
+},
+{
+"q": "Quelle princesse Disney a une très longue chevelure magique ?",
+"a": [
+"Raiponce",
+"Rapunzel"
+]
+},
+{
+"q": "Quel film français met en scène Omar Sy et François Cluzet, avec un handicap et une amitié ?",
+"a": [
+"Intouchables",
+"Les Intouchables"
+]
+},
+{
+"q": "Dans Le Seigneur des anneaux, comment s'appelle le hobbit qui porte l'anneau ?",
+"a": [
+"Frodon",
+"Frodo",
+"Frodon Sacquet"
+]
+},
+{
+"q": "Quel est le nom du cowboy dans Toy Story ?",
+"a": [
+"Woody"
+]
+},
+{
+"q": "Dans quelle saga trouve-t-on Dark Vador ?",
+"a": [
+"Star Wars"
+]
+},
+{
+"q": "Quel film de 1997 raconte le naufrage d'un paquebot avec Leonardo DiCaprio et Kate Winslet ?",
+"a": [
+"Titanic"
+]
+},
+{
+"q": "Quel est le métier de Walter White dans Breaking Bad au début de la série ?",
+"a": [
+"Professeur de chimie",
+"Prof de chimie",
+"Professeur"
+]
+},
+{
+"q": "Quelle série met en scène des dragons et le Trône de Fer ?",
+"a": [
+"Game of Thrones",
+"GOT"
+]
+},
+{
+"q": "Comment s'appelle le robot qui nettoie la Terre dans le film Pixar de 2008 ?",
+"a": [
+"Wall-E",
+"WALL-E",
+"Wall E"
+]
+},
+{
+"q": "Quel acteur incarne Jack dans Titanic ?",
+"a": [
+"Leonardo DiCaprio",
+"DiCaprio"
+]
+},
+{
+"q": "Dans Shrek, quel est le nom de l'âne qui accompagne l'ogre ?",
+"a": [
+"L'Âne",
+"Âne",
+"Donkey"
+]
+},
+{
+"q": "Quel film d'horreur met en scène un clown nommé Grippe-Sou ?",
+"a": [
+"Ça",
+"It"
+]
+},
+{
+"q": "Comment s'appelle la série espagnole où des braqueurs portent des masques de Dali ?",
+"a": [
+"La Casa de Papel",
+"Casa de Papel",
+"Money Heist"
+]
+},
+{
+"q": "Qui est le réalisateur de Pulp Fiction ?",
+"a": [
+"Quentin Tarantino",
+"Tarantino"
+]
+},
+{
+"q": "Quel super-héros est aussi Peter Parker ?",
+"a": [
+"Spider-Man",
+"Spiderman",
+"L'Homme-Araignée"
+]
+},
+{
+"q": "Quel est le nom du royaume de Black Panther ?",
+"a": [
+"Wakanda"
+]
+},
+{
+"q": "Dans Vice-Versa, quelle émotion est de couleur jaune ?",
+"a": [
+"Joie"
+]
+},
+{
+"q": "Dans quelle série suit-on le tueur Dexter ?",
+"a": [
+"Dexter"
+]
+},
+{
+"q": "Quel film d'animation Disney contient la chanson « Libérée, délivrée » ?",
+"a": [
+"La Reine des neiges",
+"Reine des neiges",
+"Frozen"
+]
+},
+{
+"q": "Comment s'appelle l'actrice qui joue Mercredi dans la série Netflix Mercredi ?",
+"a": [
+"Jenna Ortega",
+"Ortega"
+]
+},
+{
+"q": "Dans quel film voit-on la réplique « Je suis le roi du monde ! » ?",
+"a": [
+"Titanic"
+]
+},
+{
+"q": "Quelle saga raconte la vie de Bella Swan et d'un vampire nommé Edward ?",
+"a": [
+"Twilight"
+]
+},
+{
+"q": "Quel film Pixar suit un rat qui rêve de devenir cuisinier à Paris ?",
+"a": [
+"Ratatouille"
+]
+},
+{
+"q": "Quelle série met en scène la famille Shelby à Birmingham ?",
+"a": [
+"Peaky Blinders"
+]
+},
+{
+"q": "Dans Les Minions, comment s'appelle le méchant dont ils sont les serviteurs ?",
+"a": [
+"Gru",
+"Moi, moche et méchant"
+]
+},
+{
+"q": "Quel film français de 2001 suit une jeune femme rêveuse à Montmartre ?",
+"a": [
+"Amélie Poulain",
+"Le Fabuleux Destin d'Amélie Poulain",
+"Amélie"
+]
+},
+{
+"q": "Comment s'appelle le petit extraterrestre vert dans The Mandalorian ?",
+"a": [
+"Grogu",
+"Bébé Yoda",
+"Baby Yoda",
+"Yoda"
+]
+},
+{
+"q": "Qui joue le Joker dans le film Joker de 2019 ?",
+"a": [
+"Joaquin Phoenix",
+"Phoenix"
+]
+},
+{
+"t": "image",
+"q": "Qui est cet acteur ?",
+"wiki": "Omar_Sy",
+"a": [
+"Omar Sy",
+"Sy"
+],
+"hint": "Acteur français d'Intouchables et de Lupin"
+},
+{
+"t": "image",
+"q": "Qui est cet acteur ?",
+"wiki": "Leonardo_DiCaprio",
+"a": [
+"DiCaprio",
+"Leonardo DiCaprio"
+],
+"hint": "Acteur américain de Titanic et Inception"
+},
+{
+"t": "image",
+"q": "Qui est cet acteur ?",
+"wiki": "Jean_Dujardin",
+"a": [
+"Dujardin",
+"Jean Dujardin"
+],
+"hint": "Acteur français oscarisé pour The Artist"
+},
+{
+"q": "Quel réalisateur a tourné Pulp Fiction ?",
+"a": [
+"Quentin Tarantino",
+"Tarantino"
+]
+},
+{
+"q": "Comment s'appelle le sorcier à lunettes créé par J.K. Rowling ?",
+"a": [
+"Harry Potter"
+]
+},
+{
+"q": "Dans quelle série trouve-t-on Walter White, professeur de chimie devenu trafiquant ?",
+"a": [
+"Breaking Bad"
+]
+},
+{
+"q": "Quelle série Netflix met en scène un jeu mortel avec des survêtements verts ?",
+"a": [
+"Squid Game"
+]
+},
+{
+"q": "Quel film d'animation met en scène un poisson-clown nommé Nemo ?",
+"a": [
+"Le Monde de Nemo",
+"Nemo"
+]
+},
+{
+"q": "Dans « Stranger Things », comment s'appelle la fille aux pouvoirs télékinétiques ?",
+"a": [
+"Onze",
+"Eleven",
+"Eleven (Onze)"
+]
+},
+{
+"q": "Quelle saga met en scène Dark Vador ?",
+"a": [
+"Star Wars"
+]
+},
+{
+"q": "Quel super-héros est le milliardaire Tony Stark ?",
+"a": [
+"Iron Man"
+]
+},
+{
+"q": "Quel film a pour héroïne Elsa, la reine des neiges ?",
+"a": [
+"La Reine des neiges",
+"Frozen"
+]
+},
+{
+"q": "Quel film français met en scène Omar Sy et François Cluzet, inspiré d'une histoire vraie ?",
+"a": [
+"Intouchables",
+"Les Intouchables"
+]
+},
+{
+"t": "image",
+"q": "Qui est cet acteur ?",
+"wiki": "Brad_Pitt",
+"a": [
+"Brad Pitt",
+"Pitt"
+],
+"hint": "Acteur américain de Fight Club et Once Upon a Time in Hollywood"
+},
+{
+"t": "image",
+"q": "Qui est cet acteur ?",
+"wiki": "Tom_Holland",
+"a": [
+"Tom Holland",
+"Holland"
+],
+"hint": "Le Spider-Man du MCU"
+},
+{
+"t": "image",
+"q": "Qui est cette actrice ?",
+"wiki": "Zendaya",
+"a": [
+"Zendaya"
+],
+"hint": "Actrice d'Euphoria et de Dune"
+},
+{
+"t": "image",
+"q": "Qui est cette actrice ?",
+"wiki": "Margot_Robbie",
+"a": [
+"Margot Robbie",
+"Robbie"
+],
+"hint": "Actrice australienne de Barbie"
+},
+{
+"t": "image",
+"q": "Qui est cet acteur ?",
+"wiki": "Timothée_Chalamet",
+"a": [
+"Chalamet",
+"Timothée Chalamet"
+],
+"hint": "Acteur de Dune et Wonka"
+},
+{
+"t": "image",
+"q": "Qui est cet acteur ?",
+"wiki": "Dwayne_Johnson",
+"a": [
+"Dwayne Johnson",
+"The Rock",
+"Johnson"
+],
+"hint": "Ancien catcheur surnommé « The Rock »"
+},
+{
+"t": "image",
+"q": "Qui est cet acteur ?",
+"wiki": "Keanu_Reeves",
+"a": [
+"Keanu Reeves",
+"Reeves"
+],
+"hint": "Neo dans Matrix et John Wick"
+},
+{
+"t": "image",
+"q": "Qui est cette actrice ?",
+"wiki": "Scarlett_Johansson",
+"a": [
+"Scarlett Johansson",
+"Johansson"
+],
+"hint": "La Veuve noire du MCU"
+}
+]

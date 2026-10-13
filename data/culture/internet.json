@@ -1,0 +1,313 @@
+[
+{
+"q": "Quel youtubeur français, de son vrai nom Lucas Hauchard, organise le GP Explorer ?",
+"a": [
+"Squeezie",
+"Lucas Hauchard"
+]
+},
+{
+"q": "Quel streamer et organisateur de la Zevent est un des visages français de Twitch ? (il commence par Z)",
+"a": [
+"ZeratoR",
+"Zerator"
+]
+},
+{
+"q": "Comment s'appelle l'événement caritatif annuel de streamers qui récolte des millions d'euros ?",
+"a": [
+"Zevent",
+"ZEvent",
+"Z Event"
+]
+},
+{
+"q": "Quel streamer français est le fondateur de la structure Karmine Corp ?",
+"a": [
+"Kameto"
+]
+},
+{
+"q": "Quelle équipe e-sport française bleue et blanche est connue pour ses supporters très bruyants ?",
+"a": [
+"Karmine Corp",
+"KC",
+"La Karmine Corp"
+]
+},
+{
+"q": "Quel site de Kameto propose des quiz de culture générale ?",
+"a": [
+"KCulture",
+"Kculture",
+"K Culture"
+]
+},
+{
+"q": "Quel youtubeur français a gravi l'Everest en 2024 pour son film documentaire ?",
+"a": [
+"Inoxtag"
+]
+},
+{
+"q": "Comment s'appelle le film documentaire d'Inoxtag sur son ascension de l'Everest ?",
+"a": [
+"Kaizen"
+]
+},
+{
+"q": "Quel est le nom du réseau social aux vidéos courtes avec un logo en note de musique ?",
+"a": [
+"TikTok",
+"Tik Tok"
+]
+},
+{
+"q": "Quelle application de messagerie a un fantôme jaune pour logo ?",
+"a": [
+"Snapchat",
+"Snap"
+]
+},
+{
+"q": "Quel réseau social est symbolisé par un petit oiseau bleu, devenu X ?",
+"a": [
+"Twitter"
+]
+},
+{
+"q": "Qui est le patron de X, de Tesla et de SpaceX ?",
+"a": [
+"Elon Musk",
+"Musk"
+]
+},
+{
+"q": "Quel est le nom de l'intelligence artificielle d'OpenAI lancée fin 2022 ?",
+"a": [
+"ChatGPT",
+"Chat GPT",
+"GPT"
+]
+},
+{
+"q": "Quel est le nom du moteur de recherche le plus utilisé au monde ?",
+"a": [
+"Google"
+]
+},
+{
+"q": "Quelle plateforme de streaming live violette est très populaire pour les jeux vidéo ?",
+"a": [
+"Twitch"
+]
+},
+{
+"q": "Quel est le nom de la plateforme de vidéos à logo rouge avec un triangle blanc ?",
+"a": [
+"YouTube",
+"Youtube"
+]
+},
+{
+"q": "Comment appelle-t-on une personne qui diffuse du contenu en direct sur Twitch ?",
+"a": [
+"Streamer",
+"Un streamer"
+]
+},
+{
+"q": "Quelle application permet d'appeler et chatter par serveurs, très utilisée par les gamers ?",
+"a": [
+"Discord"
+]
+},
+{
+"q": "Quel mème montre un chien Shiba Inu et a donné son nom à une cryptomonnaie ?",
+"a": [
+"Doge",
+"Dogecoin"
+]
+},
+{
+"q": "Quelle est la plus célèbre cryptomonnaie, créée par Satoshi Nakamoto ?",
+"a": [
+"Bitcoin",
+"BTC"
+]
+},
+{
+"q": "Que signifie l'abréviation « MDR » ?",
+"a": [
+"Mort de rire"
+]
+},
+{
+"q": "Que signifie « LOL » ?",
+"a": [
+"Laughing out loud",
+"Rire à voix haute",
+"Mort de rire"
+]
+},
+{
+"q": "Que signifie l'acronyme « GOAT » dans le langage des fans de sport ?",
+"a": [
+"Greatest of all time",
+"Le meilleur de tous les temps",
+"Le plus grand de tous les temps"
+]
+},
+{
+"q": "Quel est le nom de l'assistant vocal d'Apple ?",
+"a": [
+"Siri"
+]
+},
+{
+"q": "Quel est le nom du navigateur web de Google ?",
+"a": [
+"Chrome",
+"Google Chrome"
+]
+},
+{
+"q": "Quelle entreprise a créé l'iPhone ?",
+"a": [
+"Apple"
+]
+},
+{
+"q": "Quelle est la marque de la console PS5 ?",
+"a": [
+"Sony"
+]
+},
+{
+"q": "Quel est le vrai nom de la youtubeuse Léna Situations ?",
+"a": [
+"Léna Mahfouf",
+"Mahfouf",
+"Lena Mahfouf"
+]
+},
+{
+"q": "Quel site collaboratif est l'encyclopédie en ligne gratuite ?",
+"a": [
+"Wikipédia",
+"Wikipedia"
+]
+},
+{
+"q": "Quelle plateforme de streaming a un « N » rouge pour logo ?",
+"a": [
+"Netflix"
+]
+},
+{
+"q": "Quel réseau social utilise un fantôme jaune comme logo ?",
+"a": [
+"Snapchat",
+"Snap"
+]
+},
+{
+"q": "Quelle plateforme de streaming est violette et dédiée aux jeux vidéo ?",
+"a": [
+"Twitch"
+]
+},
+{
+"q": "Quel réseau social est connu pour ses vidéos courtes avec des danses et des tendances, propriété de ByteDance ?",
+"a": [
+"TikTok",
+"Tik Tok"
+]
+},
+{
+"q": "Comment appelle-t-on une image humoristique qui se partage sur Internet ?",
+"a": [
+"Un meme",
+"Meme",
+"Mème",
+"Un mème"
+]
+},
+{
+"q": "Quel réseau social a été racheté par Elon Musk et rebaptisé X ?",
+"a": [
+"Twitter"
+]
+},
+{
+"q": "Quelle application de messagerie a un logo vert avec un téléphone ?",
+"a": [
+"WhatsApp"
+]
+},
+{
+"q": "Quel est le site de partage de vidéos le plus célèbre au monde ?",
+"a": [
+"YouTube",
+"Youtube"
+]
+},
+{
+"q": "Quel animal est la mascotte de l'ancien réseau social Twitter ?",
+"a": [
+"Un oiseau",
+"Oiseau"
+]
+},
+{
+"t": "image",
+"q": "Qui est ce youtubeur ?",
+"wiki": "Squeezie",
+"a": [
+"Squeezie",
+"Lucas Hauchard"
+],
+"hint": "Youtubeur français n°1, créateur du Squeezie Awards"
+},
+{
+"t": "image",
+"q": "Qui est ce youtubeur ?",
+"wiki": "Inoxtag",
+"a": [
+"Inoxtag"
+],
+"hint": "Youtubeur français qui a gravi l'Everest"
+},
+{
+"t": "image",
+"q": "Qui est ce youtubeur ?",
+"wiki": "MrBeast",
+"a": [
+"MrBeast",
+"Mr Beast",
+"Jimmy Donaldson"
+],
+"hint": "Youtubeur américain des défis géants"
+},
+{
+"t": "image",
+"q": "Qui est ce youtubeur ?",
+"wiki": "PewDiePie",
+"a": [
+"PewDiePie",
+"Pewdiepie",
+"Felix Kjellberg"
+],
+"hint": "Youtubeur suédois star des jeux vidéo"
+},
+{
+"t": "image",
+"q": "Qui est cet entrepreneur ?",
+"wiki": "Elon_Musk",
+"a": [
+"Elon Musk",
+"Musk"
+],
+"hint": "Patron de Tesla, SpaceX et X"
+}
+]

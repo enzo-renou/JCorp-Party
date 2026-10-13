@@ -1,0 +1,358 @@
+[
+{
+"q": "Qui a peint La Joconde ?",
+"a": [
+"Léonard de Vinci",
+"Leonard de Vinci",
+"De Vinci",
+"Vinci"
+]
+},
+{
+"q": "Dans quel musée parisien est exposée La Joconde ?",
+"a": [
+"Louvre",
+"Le Louvre",
+"Musée du Louvre"
+]
+},
+{
+"q": "Qui a peint La Nuit étoilée ?",
+"a": [
+"Van Gogh",
+"Vincent van Gogh"
+]
+},
+{
+"q": "Quel peintre a coupé une partie de son oreille ?",
+"a": [
+"Van Gogh",
+"Vincent van Gogh"
+]
+},
+{
+"q": "Qui a peint Les Demoiselles d'Avignon et Guernica ?",
+"a": [
+"Picasso",
+"Pablo Picasso"
+]
+},
+{
+"q": "Quel mouvement artistique est associé à Claude Monet et à son tableau Impression, soleil levant ?",
+"a": [
+"Impressionnisme",
+"L'impressionnisme"
+]
+},
+{
+"q": "Qui a peint Le Cri ?",
+"a": [
+"Munch",
+"Edvard Munch"
+]
+},
+{
+"q": "Qui a peint La Persistance de la mémoire, avec des montres molles ?",
+"a": [
+"Dalí",
+"Dali",
+"Salvador Dalí",
+"Salvador Dali"
+]
+},
+{
+"q": "Quel peintre néerlandais a peint La Jeune Fille à la perle ?",
+"a": [
+"Vermeer",
+"Johannes Vermeer"
+]
+},
+{
+"q": "Qui a peint La Liberté guidant le peuple ?",
+"a": [
+"Delacroix",
+"Eugène Delacroix"
+]
+},
+{
+"q": "Quel sculpteur a créé Le Penseur ?",
+"a": [
+"Rodin",
+"Auguste Rodin"
+]
+},
+{
+"q": "Qui a peint le plafond de la chapelle Sixtine ?",
+"a": [
+"Michel-Ange",
+"Michelange",
+"Michelangelo"
+]
+},
+{
+"q": "Quel artiste américain est le roi du pop art avec ses boîtes de soupe Campbell ?",
+"a": [
+"Andy Warhol",
+"Warhol"
+]
+},
+{
+"q": "Quel artiste de rue britannique est connu pour ses œuvres anonymes comme La Fille au ballon ?",
+"a": [
+"Banksy"
+]
+},
+{
+"q": "Quel peintre a réalisé Les Nymphéas ?",
+"a": [
+"Monet",
+"Claude Monet"
+]
+},
+{
+"q": "Quel artiste mexicaine est connue pour ses autoportraits avec sourcils épais ?",
+"a": [
+"Frida Kahlo",
+"Kahlo"
+]
+},
+{
+"q": "Qui a peint Le Baiser, doré et très célèbre, à Vienne ?",
+"a": [
+"Klimt",
+"Gustav Klimt"
+]
+},
+{
+"q": "Quelle ville abrite le musée du Prado ?",
+"a": [
+"Madrid"
+]
+},
+{
+"q": "Dans quelle ville se trouve le musée de l'Ermitage ?",
+"a": [
+"Saint-Pétersbourg",
+"Saint Petersbourg"
+]
+},
+{
+"q": "Qui est l'auteur de la célèbre sculpture David à Florence ?",
+"a": [
+"Michel-Ange",
+"Michelange",
+"Michelangelo"
+]
+},
+{
+"q": "Quel est le prénom du peintre Picasso ?",
+"a": [
+"Pablo"
+]
+},
+{
+"q": "Quel écrivain français a écrit Les Misérables ?",
+"a": [
+"Victor Hugo",
+"Hugo"
+]
+},
+{
+"q": "Qui a écrit Le Petit Prince ?",
+"a": [
+"Antoine de Saint-Exupéry",
+"Saint-Exupéry",
+"Saint Exupéry"
+]
+},
+{
+"q": "Qui a écrit Roméo et Juliette ?",
+"a": [
+"Shakespeare",
+"William Shakespeare"
+]
+},
+{
+"q": "Quel auteur a créé le détective Sherlock Holmes ?",
+"a": [
+"Arthur Conan Doyle",
+"Conan Doyle",
+"Doyle"
+]
+},
+{
+"q": "Quel écrivain a créé le personnage d'Arsène Lupin ?",
+"a": [
+"Maurice Leblanc",
+"Leblanc"
+]
+},
+{
+"q": "Qui est l'auteur de la saga Harry Potter ?",
+"a": [
+"J.K. Rowling",
+"JK Rowling",
+"Rowling"
+]
+},
+{
+"q": "Quel auteur français a écrit Le Comte de Monte-Cristo ?",
+"a": [
+"Alexandre Dumas",
+"Dumas"
+]
+},
+{
+"q": "Quel auteur a écrit 1984 ?",
+"a": [
+"George Orwell",
+"Orwell"
+]
+},
+{
+"q": "Qui a écrit les aventures d'Astérix, avec Goscinny ?",
+"a": [
+"Uderzo",
+"Albert Uderzo"
+]
+},
+{
+"q": "Qui a peint « La Joconde » ?",
+"a": [
+"Léonard de Vinci",
+"Leonard de Vinci",
+"De Vinci",
+"Vinci"
+]
+},
+{
+"q": "Quel peintre a réalisé « La Nuit étoilée » ?",
+"a": [
+"Vincent van Gogh",
+"Van Gogh"
+]
+},
+{
+"q": "Quel écrivain a créé le personnage d'Harry Potter ?",
+"a": [
+"J.K. Rowling",
+"JK Rowling",
+"Rowling"
+]
+},
+{
+"q": "Quel écrivain français a écrit « Les Misérables » ?",
+"a": [
+"Victor Hugo",
+"Hugo"
+]
+},
+{
+"q": "Quel auteur a écrit « Le Petit Prince » ?",
+"a": [
+"Antoine de Saint-Exupéry",
+"Saint-Exupéry",
+"Saint Exupery"
+]
+},
+{
+"q": "Dans quel musée parisien est exposée la Joconde ?",
+"a": [
+"Le Louvre",
+"Louvre"
+]
+},
+{
+"q": "Quel peintre espagnol est célèbre pour « Guernica » ?",
+"a": [
+"Pablo Picasso",
+"Picasso"
+]
+},
+{
+"t": "image",
+"q": "Quel est ce tableau ?",
+"wiki": "La_Joconde",
+"a": [
+"La Joconde",
+"Joconde",
+"Mona Lisa"
+],
+"hint": "Peint par Léonard de Vinci, exposé au Louvre"
+},
+{
+"t": "image",
+"q": "Quel est ce tableau ?",
+"wiki": "La_Nuit_étoilée",
+"a": [
+"La Nuit étoilée",
+"Nuit étoilée",
+"The Starry Night",
+"Starry Night"
+],
+"hint": "Peint par Van Gogh"
+},
+{
+"t": "image",
+"q": "Quel est ce tableau ?",
+"wiki": "Le_Cri",
+"a": [
+"Le Cri",
+"Cri",
+"The Scream"
+],
+"hint": "Peint par Edvard Munch"
+},
+{
+"t": "image",
+"q": "Quel est ce tableau ?",
+"wiki": "La_Persistance_de_la_mémoire",
+"a": [
+"La Persistance de la mémoire",
+"Les montres molles",
+"Montres molles"
+],
+"hint": "Peint par Salvador Dalí"
+},
+{
+"t": "image",
+"q": "Quel est ce tableau ?",
+"wiki": "La_Liberté_guidant_le_peuple",
+"a": [
+"La Liberté guidant le peuple",
+"Liberté guidant le peuple"
+],
+"hint": "Peint par Delacroix, une femme brandit le drapeau tricolore"
+},
+{
+"t": "image",
+"q": "Quel est ce tableau ?",
+"wiki": "La_Jeune_Fille_à_la_perle",
+"a": [
+"La Jeune Fille à la perle",
+"Jeune Fille à la perle",
+"Girl with a Pearl Earring"
+],
+"hint": "Peint par Vermeer"
+},
+{
+"t": "image",
+"q": "Quel est ce tableau ?",
+"wiki": "Impression,_soleil_levant",
+"a": [
+"Impression soleil levant",
+"Impression, soleil levant"
+],
+"hint": "Peint par Monet, il a donné son nom à un courant"
+},
+{
+"t": "image",
+"q": "Quel est ce tableau ?",
+"wiki": "La_Naissance_de_Vénus",
+"a": [
+"La Naissance de Vénus",
+"Naissance de Vénus"
+],
+"hint": "Peint par Botticelli, une déesse sur une coquille"
+}
+]

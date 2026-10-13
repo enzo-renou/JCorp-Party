@@ -1,0 +1,334 @@
+[
+{
+"q": "Dans quelle ville se sont tenus les Jeux olympiques de 2024 ?",
+"a": [
+"Paris"
+]
+},
+{
+"q": "Quel nageur français a remporté quatre médailles d'or aux JO de Paris 2024 ?",
+"a": [
+"Léon Marchand",
+"Marchand"
+]
+},
+{
+"q": "Quel joueur de basket français joue pour les San Antonio Spurs et mesure plus de 2,20 m ?",
+"a": [
+"Victor Wembanyama",
+"Wembanyama",
+"Wemby"
+]
+},
+{
+"q": "Quel joueur de NBA est surnommé « King James » ?",
+"a": [
+"LeBron James",
+"LeBron"
+]
+},
+{
+"q": "Quelle équipe NBA joue à Los Angeles en violet et jaune ?",
+"a": [
+"Lakers",
+"Los Angeles Lakers",
+"LA Lakers"
+]
+},
+{
+"q": "Quel basketteur américain portait le numéro 23 aux Chicago Bulls ?",
+"a": [
+"Michael Jordan",
+"Jordan"
+]
+},
+{
+"q": "Quel pilote britannique a remporté sept titres de champion du monde de Formule 1 ?",
+"a": [
+"Lewis Hamilton",
+"Hamilton"
+]
+},
+{
+"q": "Quel pilote néerlandais a dominé la F1 avec Red Bull entre 2021 et 2024 ?",
+"a": [
+"Max Verstappen",
+"Verstappen"
+]
+},
+{
+"q": "Quelle écurie de F1 est surnommée la Scuderia ?",
+"a": [
+"Ferrari",
+"Scuderia Ferrari"
+]
+},
+{
+"q": "Quel tennisman suisse a remporté 20 Grand Chelems ?",
+"a": [
+"Roger Federer",
+"Federer"
+]
+},
+{
+"q": "Quel joueur espagnol est surnommé le « roi de la terre battue » ?",
+"a": [
+"Rafael Nadal",
+"Nadal"
+]
+},
+{
+"q": "Sur quelle surface se joue Roland-Garros ?",
+"a": [
+"Terre battue"
+]
+},
+{
+"q": "Dans quelle ville se joue Wimbledon ?",
+"a": [
+"Londres"
+]
+},
+{
+"q": "Combien de joueurs y a-t-il dans une équipe de basket sur le terrain ?",
+"a": [
+"5",
+"cinq"
+]
+},
+{
+"q": "Combien de joueurs y a-t-il dans une équipe de rugby à XV ?",
+"a": [
+"15",
+"quinze"
+]
+},
+{
+"q": "Quel sport pratique Teddy Riner ?",
+"a": [
+"Judo"
+]
+},
+{
+"q": "Quel sport pratique Tony Parker ?",
+"a": [
+"Basket",
+"Basketball"
+]
+},
+{
+"q": "Quel sport se joue avec un volant ?",
+"a": [
+"Badminton"
+]
+},
+{
+"q": "Dans quel sport marque-t-on un « essai » ?",
+"a": [
+"Rugby"
+]
+},
+{
+"q": "Combien d'anneaux y a-t-il sur le drapeau olympique ?",
+"a": [
+"5",
+"cinq"
+]
+},
+{
+"q": "Quel est le nom de la course cycliste la plus célèbre de France ?",
+"a": [
+"Tour de France",
+"Le Tour de France"
+]
+},
+{
+"q": "De quelle couleur est le maillot du leader du Tour de France ?",
+"a": [
+"Jaune"
+]
+},
+{
+"q": "Quel sprinter jamaïcain a battu tous les records du 100 m ?",
+"a": [
+"Usain Bolt",
+"Bolt"
+]
+},
+{
+"q": "Quel sport traditionnel japonais oppose deux lutteurs sur un dohyō ?",
+"a": [
+"Sumo",
+"Le sumo"
+]
+},
+{
+"q": "Quel boxeur surnommé « The Greatest » a dit « Je suis le plus grand » ?",
+"a": [
+"Mohamed Ali",
+"Muhammad Ali",
+"Ali",
+"Cassius Clay"
+]
+},
+{
+"q": "Dans quel sport utilise-t-on un palet ?",
+"a": [
+"Hockey sur glace",
+"Hockey"
+]
+},
+{
+"q": "Quelle discipline combine ski de fond et tir à la carabine ?",
+"a": [
+"Biathlon"
+]
+},
+{
+"q": "Combien de temps dure un match de football, hors prolongations ?",
+"a": [
+"90 minutes",
+"90",
+"1h30",
+"90 min"
+]
+},
+{
+"q": "Quel club de NBA a pour mascotte un taureau ?",
+"a": [
+"Chicago Bulls",
+"Bulls"
+]
+},
+{
+"q": "De quelle couleur est une balle de tennis ?",
+"a": [
+"Jaune",
+"Jaune fluo"
+]
+},
+{
+"q": "Dans quel sport utilise-t-on un volant ?",
+"a": [
+"Badminton"
+]
+},
+{
+"q": "Quel joueur de basket est surnommé « King James » ?",
+"a": [
+"LeBron James",
+"LeBron"
+]
+},
+{
+"q": "Quelle ville a accueilli les Jeux olympiques d'été 2024 ?",
+"a": [
+"Paris"
+]
+},
+{
+"q": "Quel tennisman espagnol a gagné 14 Roland-Garros ?",
+"a": [
+"Rafael Nadal",
+"Nadal",
+"Rafa Nadal"
+]
+},
+{
+"q": "Dans quel sport marque-t-on un « try » ?",
+"a": [
+"Rugby",
+"Le rugby"
+]
+},
+{
+"q": "Quel sport se pratique avec un palet sur la glace ?",
+"a": [
+"Hockey sur glace",
+"Hockey"
+]
+},
+{
+"t": "image",
+"q": "Qui est ce sportif ?",
+"wiki": "Teddy_Riner",
+"a": [
+"Teddy Riner",
+"Riner"
+],
+"hint": "Judoka français multi-champion olympique"
+},
+{
+"t": "image",
+"q": "Qui est ce sportif ?",
+"wiki": "LeBron_James",
+"a": [
+"LeBron James",
+"LeBron",
+"James"
+],
+"hint": "Star du basket aux Lakers"
+},
+{
+"t": "image",
+"q": "Qui est ce sportif ?",
+"wiki": "Rafael_Nadal",
+"a": [
+"Rafael Nadal",
+"Nadal",
+"Rafa Nadal"
+],
+"hint": "Roi de la terre battue"
+},
+{
+"t": "image",
+"q": "Qui est ce sportif ?",
+"wiki": "Usain_Bolt",
+"a": [
+"Usain Bolt",
+"Bolt"
+],
+"hint": "Sprinteur jamaïcain, l'homme le plus rapide du monde"
+},
+{
+"t": "image",
+"q": "Qui est ce sportif ?",
+"wiki": "Victor_Wembanyama",
+"a": [
+"Wembanyama",
+"Victor Wembanyama",
+"Wemby"
+],
+"hint": "Géant français des Spurs"
+},
+{
+"t": "image",
+"q": "Qui est ce sportif ?",
+"wiki": "Léon_Marchand",
+"a": [
+"Léon Marchand",
+"Marchand"
+],
+"hint": "Nageur français star des JO de Paris 2024"
+},
+{
+"t": "image",
+"q": "Qui est ce sportif ?",
+"wiki": "Novak_Djokovic",
+"a": [
+"Novak Djokovic",
+"Djokovic"
+],
+"hint": "Tennisman serbe aux 24 titres du Grand Chelem"
+},
+{
+"t": "image",
+"q": "Qui est ce sportif ?",
+"wiki": "Tony_Parker",
+"a": [
+"Tony Parker",
+"Parker"
+],
+"hint": "Meneur français champion NBA avec San Antonio"
+}
+]
