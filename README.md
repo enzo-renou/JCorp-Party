@@ -5,7 +5,7 @@ Jeu de soirée en ligne pour la JCorp : on rejoint un salon avec un **code à 4 
 | Jeu | Principe |
 |---|---|
 | 🎨 Skribbl | Chacun dessine à son tour, points selon la rapidité de la bonne réponse |
-| 🧠 Culture G | ~590 questions (foot, ciné, rap, anime, rébus, emojis, photos « qui est-ce ? », tableaux, monuments…), le maître corrige, 1 pt/bonne réponse, catégories au choix |
+| 🧠 Culture G | ~600 questions (foot, ciné, rap, anime, rébus, emojis, photos « qui est-ce ? », tableaux, monuments, 4 images 1 mot…), le maître corrige, 1 pt/bonne réponse, catégories au choix |
 | 🌍 Quiz Géo | 9 questions : 3 sur la carte, 3 capitales, 3 drapeaux, de facile à dur |
 | 🕵️ L'Imposteur | Citoyens / imposteurs / M. White : indices, vote, réunion d'urgence |
 | 🎤 Mastergoon | « Ne dis pas la même chose que moi » : le maître part à 10 pts et en perd 1 si personne n'est éliminé |
@@ -38,10 +38,10 @@ Même Wi-Fi : l'adresse réseau s'affiche au démarrage. Le QR code du salon per
 
 ## 4. Photos du quiz (« Qui est ce joueur ? », tableaux, monuments)
 
-Les ~70 questions photo utilisent l'image principale de la page Wikipédia indiquée dans `data/culture/*.json` (champ `"wiki"`). Le serveur la récupère et la relaie aux joueurs (le nom du fichier, qui donnerait la réponse, n'est jamais visible).
+Les ~80 questions photo (et les « 4 images, 1 mot ») utilisent l'image principale de la page Wikipédia indiquée dans `data/culture/*.json` (champ `"wiki"`). Le serveur la récupère et la relaie aux joueurs (le nom du fichier, qui donnerait la réponse, n'est jamais visible).
 
 - **Sur Render, ça marche tout seul** : le serveur a internet. Si une photo ne charge pas, un indice texte s'affiche à la place.
-- **Pour être tranquille (recommandé)**, télécharge toutes les photos une fois sur ton ordi, puis commite-les :
+- **Déjà fait** : les ~100 photos sont dans `data/photos/` (compressées, 5 Mo) et servies directement par le serveur. Pour en ajouter, mets le titre Wikipédia dans la question puis relance :
   ```bash
   npm run photos          # télécharge dans data/photos/ et liste les pages sans image
   git add data/photos && git commit -m "photos du quiz" && git push

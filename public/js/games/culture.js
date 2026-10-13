@@ -14,9 +14,10 @@ export default function create(api) {
 
   function qCard(q) {
     const img = q.img ? h('img', { class: 'qimg', src: q.img, alt: 'Qui est-ce ?', onerror: (e) => { e.target.replaceWith(h('div', { class: 'qhint' }, `📷 Photo indisponible — indice : ${q.hint ?? '…'}`)); } }) : null;
+    const grid = q.imgs ? h('div', { class: 'pics4' }, q.imgs.map((src) => h('img', { class: 'qimg', src, alt: '', onerror: (e) => e.target.replaceWith(h('div', { class: 'qhint' }, '📷 ?')) }))) : null;
     return h('div', { class: 'qcard' },
       h('span', { class: 'pill cyan qcat' }, CAT[q.cat] ?? q.cat),
-      h('div', { class: 'qtext' }, q.q), q.emoji ? h('div', { class: 'qemoji' }, q.emoji) : null, img);
+      h('div', { class: 'qtext' }, q.q), q.emoji ? h('div', { class: 'qemoji' }, q.emoji) : null, img, grid);
   }
 
   // ------------------------------------------------------------ questions

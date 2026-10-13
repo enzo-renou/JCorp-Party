@@ -385,5 +385,147 @@
 "Pyramide de Khéops"
 ],
 "hint": "Merveille de l'Égypte antique"
+},
+{
+"t": "pics",
+"q": "4 images, 1 mot : quel est le mot commun ?",
+"wikis": [
+"Pont_du_Gard",
+"Golden_Gate_Bridge",
+"Pont_de_Brooklyn",
+"Tower_Bridge"
+],
+"a": [
+"Pont",
+"Un pont",
+"Les ponts"
+]
+},
+{
+"t": "pics",
+"q": "4 images, 1 mot : quel est le mot commun ?",
+"wikis": [
+"Tour_Eiffel",
+"Tour_de_Pise",
+"Burj_Khalifa",
+"Big_Ben"
+],
+"a": [
+"Tour",
+"Une tour",
+"Les tours"
+]
+},
+{
+"t": "pics",
+"q": "4 images, 1 mot : quel est le mot commun ?",
+"wikis": [
+"Château_de_Versailles",
+"Château_de_Chambord",
+"Château_de_Neuschwanstein",
+"Mont-Saint-Michel"
+],
+"a": [
+"Château",
+"Chateau",
+"Un château",
+"Les châteaux"
+]
+},
+{
+"t": "pics",
+"q": "4 images, 1 mot : quel est le mot commun ?",
+"wikis": [
+"Mont_Blanc",
+"Mont_Everest",
+"Mont_Fuji",
+"Cervin"
+],
+"a": [
+"Montagne",
+"Une montagne",
+"Les montagnes",
+"Mont"
+]
+},
+{
+"t": "pics",
+"q": "4 images, 1 mot : quel est le mot commun ?",
+"wikis": [
+"Banane",
+"Fraise",
+"Ananas",
+"Pomme"
+],
+"a": [
+"Fruit",
+"Fruits",
+"Un fruit",
+"Les fruits"
+]
+},
+{
+"t": "pics",
+"q": "4 images, 1 mot : quel est le mot commun ?",
+"wikis": [
+"Guitare",
+"Piano",
+"Violon",
+"Trompette"
+],
+"a": [
+"Instrument",
+"Instruments",
+"Instrument de musique",
+"Instruments de musique"
+]
+},
+{
+"t": "pics",
+"q": "4 images, 1 mot : quel est le mot commun ?",
+"wikis": [
+"Mars_(planète)",
+"Jupiter_(planète)",
+"Saturne_(planète)",
+"Neptune_(planète)"
+],
+"a": [
+"Planète",
+"Planete",
+"Une planète",
+"Les planètes"
+]
+},
+{
+"t": "pics",
+"q": "4 images, 1 mot : quel est le mot commun ?",
+"wikis": [
+"Vésuve",
+"Etna",
+"Piton_de_la_Fournaise",
+"Krakatoa"
+],
+"a": [
+"Volcan",
+"Un volcan",
+"Les volcans"
+]
+},
+{
+"t": "pics",
+"q": "4 images, 1 mot : quel est le mot commun ?",
+"wikis": [
+"Lion",
+"Tigre",
+"Guépard",
+"Léopard"
+],
+"a": [
+"Félin",
+"Félins",
+"Chat",
+"Un félin",
+"Les félins"
+]
 }
 ]

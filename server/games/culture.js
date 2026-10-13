@@ -12,7 +12,7 @@ const dir = path.join(__dirname, '..', '..', 'data', 'culture');
 for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort()) {
   const cat = file.replace('.json', '');
   JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8')).forEach((q, i) => {
-    const item = { id: `${cat}-${i}`, cat, t: q.t || 'text', q: q.q, a: q.a, emoji: q.emoji, wiki: q.wiki, hint: q.hint };
+    const item = { id: `${cat}-${i}`, cat, t: q.t || 'text', q: q.q, a: q.a, emoji: q.emoji, wiki: q.wiki, wikis: q.wikis, hint: q.hint };
     POOL.push(item);
     BY_ID.set(item.id, item);
   });
@@ -143,6 +143,7 @@ class Culture extends Game {
     return {
       t: q.t, q: q.q, emoji: q.emoji, cat: q.cat,
       img: q.wiki ? `/api/wikiimg/${encodeURIComponent(q.id)}` : undefined,
+      imgs: q.wikis ? q.wikis.map((_, n) => `/api/wikiimg/${encodeURIComponent(q.id)}/${n}`) : undefined,
       hint: q.wiki ? q.hint : undefined,
     };
   }

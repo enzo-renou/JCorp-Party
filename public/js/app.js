@@ -200,7 +200,7 @@ function Pick() {
       return h('button', {
         class: `gcard ${sel === g.key ? 'sel' : ''} ${!ok ? 'disabled' : ''} ${!isMaster ? 'static' : ''}`, style: { '--gc': g.color }, disabled: !ok && isMaster,
         onClick: () => { if (!isMaster || !ok) return; sel = g.key; opts[g.key] ||= Object.fromEntries(g.options.map((o) => [o.key, o.default])); update(state); },
-      }, h('div', { class: 'emo' }, g.emoji), h('h3', {}, g.name), h('div', { class: 'tag' }, g.tagline), h('p', {}, g.desc),
+      }, h('img', { class: 'gimg', src: `/img/game-${g.key}.svg`, alt: '', loading: 'lazy' }), h('div', { class: 'emo' }, g.emoji), h('h3', {}, g.name), h('div', { class: 'tag' }, g.tagline), h('p', {}, g.desc),
       !ok ? h('p', { class: 'pill red', style: { marginTop: '8px' } }, `Min. ${g.minPlayers} joueurs`) : null);
     });
 
@@ -257,6 +257,7 @@ function RoundEnd() {
     const isHost = state.hostId === state.me;
     const last = r.round >= state.round.total;
     fill(el, h('div', { class: 'card col', style: { maxWidth: '720px', margin: '0 auto' } },
+      h('img', { class: 'gimg wide', src: `/img/game-${r.gameKey}.svg`, alt: '' }),
       h('div', { class: 'center' }, h('div', { class: 'muted' }, `Manche ${r.round}/${state.round.total}`), h('h2', {}, `${r.emoji} ${r.gameName} terminé !`)),
       r.notes.map((n) => h('div', { class: 'muted center' }, n)),
       h('div', { class: 'rank' }, ranking.map((p, i) => {

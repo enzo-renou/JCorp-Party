@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const DIR = path.join(__dirname, '..', 'data', 'photos');
-const UA = 'JCorpParty/1.0 (jeu entre amis; https://github.com) node-fetch';
+const UA = 'JCorpPartyBot/1.0 (jeu entre amis; enzorenou1@gmail.com) node-fetch';
 const EXT = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif', 'image/svg+xml': 'svg' };
 const TYPE = Object.fromEntries(Object.entries(EXT).map(([t, e]) => [e, t]));
 
@@ -52,4 +52,4 @@ function saveLocal(wiki, img) {
   } catch { return null; }
 }
 
-module.exports = { slug, findLocal, fetchWikiImage, saveLocal, DIR };
+module.exports = { UA, slug, findLocal, fetchWikiImage, saveLocal, DIR };

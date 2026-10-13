@@ -33,7 +33,11 @@ module.exports = {
       ["Cookie", "Brownie"],
       ["Melon", "Pastèque"],
       ["Champagne", "Cidre"],
-      ["Oeuf", "Omelette"]
+      ["Oeuf", "Omelette"],
+      ["Nutella", "Confiture"],
+      ["Frites", "Chips"],
+      ["Mojito", "Piña colada"],
+      ["Coca", "Pepsi"],
     ]
   },
   animaux: {
@@ -61,7 +65,8 @@ module.exports = {
       ["Crocodile", "Alligator"],
       ["Chameau", "Dromadaire"],
       ["Fourmi", "Araignée"],
-      ["Hibou", "Chouette"]
+      ["Hibou", "Chouette"],
+      ["Pigeon", "Corbeau"],
     ]
   },
   maison: {
@@ -139,7 +144,9 @@ module.exports = {
       ["Restaurant", "Cantine"],
       ["Parc", "Jardin"],
       ["Pont", "Tunnel"],
-      ["Ascenseur", "Escalier"]
+      ["Ascenseur", "Escalier"],
+      ["Stade", "Gymnase"],
+      ["Gare", "Aéroport"],
     ]
   },
   loisirs: {
@@ -162,7 +169,11 @@ module.exports = {
       ["Boxe", "Lutte"],
       ["Surf", "Skate"],
       ["Échecs", "Dames"],
-      ["Carte", "Dé"]
+      ["Carte", "Dé"],
+      ["Fortnite", "Minecraft"],
+      ["Foot", "Rugby"],
+      ["Escape game", "Laser game"],
+      ["Karaoké", "Boîte de nuit"],
     ]
   },
   tech: {
@@ -180,7 +191,10 @@ module.exports = {
       ["Casque", "Écouteurs"],
       ["Google", "Wikipedia"],
       ["Apple", "Samsung"],
-      ["PlayStation", "Xbox"]
+      ["PlayStation", "Xbox"],
+      ["iPhone", "Samsung"],
+      ["Wi-Fi", "Bluetooth"],
+      ["Discord", "Snapchat"],
     ]
   },
   nature: {
@@ -224,7 +238,10 @@ module.exports = {
       ["Chanteur", "Acteur"],
       ["Juge", "Avocat"],
       ["Soldat", "Général"],
-      ["Pilote", "Chauffeur"]
+      ["Pilote", "Chauffeur"],
+      ["Prof", "Surveillant"],
+      ["Youtubeur", "Streamer"],
+      ["Roi", "Empereur"],
     ]
   },
   concepts: {
@@ -246,7 +263,8 @@ module.exports = {
       ["Donner", "Recevoir"],
       ["Acheter", "Vendre"],
       ["Parler", "Crier"],
-      ["Marcher", "Courir"]
+      ["Marcher", "Courir"],
+      ["Anniversaire", "Mariage"],
     ]
   },
 };

@@ -47,11 +47,13 @@ app.get('/api/qr', async (req, res) => {
 const photos = require('./photos');
 const photoCache = new Map();
 const photoFails = new Map(); // titre → heure du dernier échec (on ne retente pas en boucle)
-app.get('/api/wikiimg/:id', async (req, res) => {
+app.get(['/api/wikiimg/:id', '/api/wikiimg/:id/:n'], async (req, res) => {
   try {
     const { cultureById } = require('./games/culture');
-    const q = cultureById(req.params.id);
-    if (!q || !q.wiki) return res.status(404).end();
+    let q = cultureById(req.params.id);
+    const title = req.params.n !== undefined ? q?.wikis?.[Number(req.params.n)] : q?.wiki;
+    if (!q || !title) return res.status(404).end();
+    q = { ...q, wiki: title };
     let img = photoCache.get(q.wiki) || photos.findLocal(q.wiki);
     if (!img) {
       if (Date.now() - (photoFails.get(q.wiki) || 0) < 5 * 60_000) return res.status(502).end();
