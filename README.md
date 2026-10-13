@@ -6,7 +6,7 @@ Jeu de soirée en ligne pour la JCorp : on rejoint un salon avec un **code à 4 
 |---|---|
 | 🎨 Skribbl | Chacun dessine à son tour, points selon la rapidité de la bonne réponse |
 | 🧠 Culture G | ~600 questions (foot, ciné, rap, anime, rébus, emojis, photos « qui est-ce ? », tableaux, monuments, 4 images 1 mot…), le maître corrige, 1 pt/bonne réponse, catégories au choix |
-| 🌍 Quiz Géo | 9 questions : 3 sur la carte, 3 capitales, 3 drapeaux, de facile à dur |
+| 🌍 Quiz Géo | 9 questions : 3 sur la carte (points selon la distance), 3 capitales, 3 drapeaux ; facile 1 pt, moyen 2 pts, difficile 3 pts |
 | 🕵️ L'Imposteur | Citoyens / imposteurs / M. White : indices, vote, réunion d'urgence |
 | 🎤 Mastergoon | « Ne dis pas la même chose que moi » : le maître part à 10 pts et en perd 1 si personne n'est éliminé |
 

@@ -2,6 +2,8 @@
 import { h, fill, avatar, clock, timerBar } from '../ui.js';
 import { createMap, loadWorld } from '../map.js';
 
+const fmt = (n) => String(n).replace('.', ',');
+
 export default function create(api) {
   const el = h('div');
   let shownKey = null;
@@ -71,7 +73,7 @@ export default function create(api) {
         h('div', { class: 'rank' }, v.rows.map((r) => h('div', { class: `rrow ${r.pid === api.me() ? 'me' : ''}` },
           avatar(players[r.pid]?.avatar), h('span', { class: 'nm' }, players[r.pid]?.name),
           h('span', { class: 'muted' }, r.answer == null ? '— pas de réponse' : r.answer.text ? `« ${r.answer.text} »` : r.dist === 0 ? 'en plein dedans !' : `à ${r.dist.toLocaleString('fr-FR')} km`),
-          h('span', { class: r.ok ? 'gain' : '', style: r.ok ? {} : { color: 'var(--red)', fontFamily: 'var(--display)', fontWeight: 800 } }, r.ok ? '+1' : '✗'))))));
+          h('span', { class: r.pts > 0 ? 'gain' : '', style: r.pts > 0 ? {} : { color: 'var(--red)', fontFamily: 'var(--display)', fontWeight: 800 } }, r.pts > 0 ? `+${fmt(r.pts)}` : '✗'))))));
   }
 
   // ------------------------------------------------------------ résultats
@@ -83,9 +85,9 @@ export default function create(api) {
     const ranking = Object.entries(v.raw).sort((a, b) => b[1] - a[1]);
     fill(el, h('div', { class: 'gh' }, h('h2', {}, '🌍 Résultats du quiz géo'), h('span', { class: 'grow' }), v.endsAt ? clock(v.endsAt) : null),
       h('div', { class: 'card col' },
-        h('div', { class: 'rank' }, ranking.map(([id, pts], i) => h('div', { class: `rrow ${i === 0 ? 'first' : ''}` }, h('span', { class: 'pos' }, i + 1), avatar(players[id]?.avatar), h('span', { class: 'nm' }, players[id]?.name), h('span', { class: 'tot' }, `${pts}/${v.total}`)))),
+        h('div', { class: 'rank' }, ranking.map(([id, pts], i) => h('div', { class: `rrow ${i === 0 ? 'first' : ''}` }, h('span', { class: 'pos' }, i + 1), avatar(players[id]?.avatar), h('span', { class: 'nm' }, players[id]?.name), h('span', { class: 'tot' }, `${fmt(pts)}/${v.max}`)))),
         h('div', { class: 'recap' }, v.recap.map((q) => h('div', { class: 'it' }, h('div', {}, h('b', {}, `${v.sections[q.section].emoji} ${q.answerLabel}`), ' ', h('span', { class: `tier t${q.tier}` }, q.tierLabel)),
-          h('div', { class: 'avs', style: { marginTop: '4px' } }, q.rows.map((r) => h('span', { title: players[r.pid]?.name }, r.ok ? '✅' : '❌', avatar(players[r.pid]?.avatar, 'sm')))))))));
+          h('div', { class: 'avs', style: { marginTop: '4px' } }, q.rows.map((r) => h('span', { title: players[r.pid]?.name }, r.pts > 0 ? (r.ok ? '✅' : '🟡') : '❌', r.pts > 0 ? h('small', {}, fmt(r.pts)) : null, avatar(players[r.pid]?.avatar, 'sm')))))))));
   }
 
   function update(v) {

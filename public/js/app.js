@@ -1,6 +1,6 @@
 // JCorp Party — application (accueil, salon, choix du jeu, fin de manche, podium)
 import { socket, store, onState, onFx, emit, action, session, prefs, serverNow } from './net.js';
-import { sfx, isMuted, setMuted } from './sound.js';
+import { sfx, getSettings, setSettings } from './sound.js';
 import { h, fill, clear, avatar, avatarUrl, clock, toast, confetti, copy } from './ui.js';
 
 const GAME_MODULES = {
@@ -12,6 +12,34 @@ const GAME_MODULES = {
 };
 
 const app = document.getElementById('app');
+
+// ------------------------------------------------------------------ paramètres (son & musique), en haut à droite
+function SettingsMenu() {
+  const panel = h('div', { class: 'settings-panel hidden', role: 'dialog', 'aria-label': 'Paramètres' });
+  const btn = h('button', { class: 'settings-btn', title: 'Paramètres', 'aria-label': 'Paramètres', onClick: (e) => { e.stopPropagation(); panel.classList.toggle('hidden'); if (!panel.classList.contains('hidden')) draw(); } }, '⚙️');
+  const row = (icon, label, key, volKey, test) => {
+    const st = getSettings();
+    const range = h('input', { type: 'range', min: 0, max: 100, value: Math.round(st[volKey] * 100), disabled: !st[key], 'aria-label': `Volume ${label}`,
+      onInput: (e) => setSettings({ [volKey]: e.target.value / 100 }), onChange: () => test?.() });
+    return h('div', { class: 'srow' },
+      h('label', { class: 'switch' }, h('input', { type: 'checkbox', checked: st[key], onChange: (e) => { setSettings({ [key]: e.target.checked }); draw(); if (e.target.checked) test?.(); } }), h('span', { class: 'sl' }), h('b', {}, `${icon} ${label}`)),
+      range, h('span', { class: 'muted pct' }, st[key] ? `${Math.round(st[volKey] * 100)}%` : 'coupé'));
+  };
+  function draw() {
+    fill(panel, h('div', { class: 'stitle' }, '⚙️ Paramètres'),
+      row('🎵', 'Musique', 'music', 'musicVol'),
+      row('🔔', 'Effets sonores', 'sfx', 'sfxVol', () => sfx('good')),
+      h('div', { class: 'muted', style: { fontSize: '.8rem' } }, 'Réglages enregistrés sur cet appareil.'));
+  }
+  draw();
+  document.addEventListener('click', (e) => { if (!panel.contains(e.target) && e.target !== btn) panel.classList.add('hidden'); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') panel.classList.add('hidden'); });
+  const wrap = h('div', { class: 'settings-wrap' }, btn, panel);
+  document.body.append(wrap);
+  // les curseurs se mettent à jour en direct sans tout redessiner
+  panel.addEventListener('input', (e) => { if (e.target.type === 'range') { const p = e.target.parentElement.querySelector('.pct'); if (p) p.textContent = `${e.target.value}%`; } });
+}
+SettingsMenu();
 
 // ------------------------------------------------------------------ squelette
 const topbar = h('header', { class: 'topbar hidden' });
@@ -65,7 +93,6 @@ function renderChrome(state) {
     inGame && state.phase !== 'final' ? h('span', { class: 'pill' }, `Manche ${state.round.index}/${state.round.total}`) : null,
     state.masterId && ['pick', 'game', 'roundEnd'].includes(state.phase) ? h('span', { class: 'pill yellow' }, `👑 ${players[state.masterId]?.name ?? '?'}`) : null,
     h('span', { class: 'grow' }),
-    h('button', { class: 'sound-btn', title: 'Son', onClick: (e) => { setMuted(!isMuted()); e.currentTarget.textContent = isMuted() ? '🔇' : '🔊'; if (!isMuted()) sfx('pop'); } }, isMuted() ? '🔇' : '🔊'),
     h('button', { class: 'btn ghost sm', onClick: () => { if (confirm('Quitter la partie ?')) leave(); } }, '🚪 Quitter'));
 
   // classement cumulé

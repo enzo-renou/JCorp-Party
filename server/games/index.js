@@ -36,7 +36,7 @@ const CATALOG = [
   {
     key: 'geo', name: 'Quiz Géo', emoji: '🌍', color: '#3ee6d1', minPlayers: 2, scale: 1,
     tagline: 'Carte, capitales, drapeaux',
-    desc: '9 questions : 3 à placer sur la carte, 3 capitales, 3 drapeaux, du facile au difficile. 1 point par bonne réponse.',
+    desc: '9 questions : 3 à placer sur la carte, 3 capitales, 3 drapeaux, du facile (1 pt) au difficile (3 pts). Sur la carte, plus tu es proche, plus tu gagnes de points.',
     options: [],
     Class: () => require('./geo'),
   },

@@ -41,18 +41,31 @@ function distToCountry(ccn3, lat, lng) {
   return best;
 }
 
-/** Tolérance (km) selon la difficulté : la carte est dézoomable mais pas au pixel près */
-const TOL_CAPITAL = { 1: 450, 2: 300, 3: 200 };
-const TOL_COUNTRY = { 1: 80, 2: 60, 3: 40 };
+/**
+ * Points : facile 1, moyen 2, difficile 3.
+ * Questions « carte » : points au prorata de la distance (plein tarif si pile dessus, 0 au-delà du rayon max ;
+ * plus la question est difficile, plus le rayon est serré).
+ */
+const TIER_PTS = { 1: 1, 2: 2, 3: 3 };
+const CAPITAL_PERFECT = 50;                       // km : pile sur la capitale
+const CAPITAL_MAX = { 1: 2000, 2: 1500, 3: 1000 }; // km : 0 point au-delà
+const COUNTRY_MAX = { 1: 1000, 2: 700, 3: 500 };   // km depuis la frontière : 0 point au-delà
+const round1 = (n) => Math.round(n * 10) / 10;
 
 function checkLocation(q, lat, lng) {
+  let f, dist;
   if (q.locKind === 'capital') {
     const d = haversine(lat, lng, q.target.lat, q.target.lng);
-    return { ok: d <= TOL_CAPITAL[q.tier], dist: Math.round(d) };
+    dist = Math.round(d);
+    f = d <= CAPITAL_PERFECT ? 1 : Math.max(0, 1 - (d - CAPITAL_PERFECT) / (CAPITAL_MAX[q.tier] - CAPITAL_PERFECT));
+  } else if (inCountry(q.country.ccn3, lat, lng)) { f = 1; dist = 0; }
+  else {
+    const d = distToCountry(q.country.ccn3, lat, lng);
+    dist = Math.round(d);
+    f = Math.max(0, 1 - d / COUNTRY_MAX[q.tier]);
   }
-  if (inCountry(q.country.ccn3, lat, lng)) return { ok: true, dist: 0 };
-  const d = distToCountry(q.country.ccn3, lat, lng);
-  return { ok: d <= TOL_COUNTRY[q.tier], dist: Math.round(d) };
+  const pts = round1(TIER_PTS[q.tier] * f);
+  return { ok: f >= 0.5, pts, dist };
 }
 
 // ---------------------------------------------------------------- questions
@@ -142,13 +155,13 @@ class Geo extends Game {
     const q = this.questions[this.idx];
     const rows = this.ids.map((pid) => {
       const a = this.answers[pid];
-      let ok = false, dist;
+      let ok = false, dist, pts = 0;
       if (a) {
-        if (q.section === 'loc') ({ ok, dist } = checkLocation(q, a.lat, a.lng));
-        else ok = isMatch(a.text, q.accepted);
+        if (q.section === 'loc') ({ ok, dist, pts } = checkLocation(q, a.lat, a.lng));
+        else { ok = isMatch(a.text, q.accepted); pts = ok ? TIER_PTS[q.tier] : 0; }
       }
-      if (ok) this.raw[pid] += 1;
-      return { pid, answer: a ?? null, ok, dist };
+      this.raw[pid] = round1(this.raw[pid] + pts);
+      return { pid, answer: a ?? null, ok, dist, pts };
     });
     this.log.push({ q: this.idx, rows });
     this.phase = 'reveal';
@@ -161,7 +174,7 @@ class Geo extends Game {
     this.phase = 'results';
     this.endsAt = Date.now() + RESULTS_TIME;
     this.update();
-    this.after(RESULTS_TIME, () => this.ctx.finish({ scores: this.raw, notes: ['9 questions : 3 sur la carte, 3 capitales, 3 drapeaux.'] }));
+    this.after(RESULTS_TIME, () => this.ctx.finish({ scores: this.raw, notes: ['9 questions · facile 1 pt, moyen 2 pts, difficile 3 pts · la carte rapporte des points selon la distance.'] }));
   }
 
   onAction(pid, msg) {
@@ -186,7 +199,7 @@ class Geo extends Game {
   }
 
   qView(q, withAnswer) {
-    const v = { section: q.section, tier: q.tier, tierLabel: TIER_LABEL[q.tier], prompt: q.prompt, flag: q.flag };
+    const v = { section: q.section, tier: q.tier, tierLabel: `${TIER_LABEL[q.tier]} · ${TIER_PTS[q.tier]} pt${TIER_PTS[q.tier] > 1 ? 's' : ''}`, prompt: q.prompt, flag: q.flag };
     if (q.section === 'loc') v.locKind = q.locKind;
     if (withAnswer) {
       v.answerLabel = q.answerLabel;
@@ -196,7 +209,7 @@ class Geo extends Game {
   }
 
   view(pid) {
-    const v = { phase: this.phase, idx: this.idx, total: this.questions.length, endsAt: this.endsAt, raw: this.raw, sections: SECTIONS };
+    const v = { phase: this.phase, idx: this.idx, total: this.questions.length, endsAt: this.endsAt, raw: this.raw, max: 18, sections: SECTIONS };
     if (this.phase === 'question') {
       v.q = this.qView(this.questions[this.idx], false);
       v.answered = Object.keys(this.answers);
@@ -205,7 +218,7 @@ class Geo extends Game {
       v.q = this.qView(this.questions[this.idx], true);
       v.rows = this.log[this.log.length - 1].rows;
     } else if (this.phase === 'results') {
-      v.recap = this.log.map((e) => ({ ...this.qView(this.questions[e.q], true), rows: e.rows.map((r) => ({ pid: r.pid, ok: r.ok })) }));
+      v.recap = this.log.map((e) => ({ ...this.qView(this.questions[e.q], true), rows: e.rows.map((r) => ({ pid: r.pid, ok: r.ok, pts: r.pts })) }));
     }
     return v;
   }
