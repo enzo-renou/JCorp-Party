@@ -329,3 +329,24 @@ label.field { display: block; font-size: .85rem; font-weight: 800; color: var(--
 .sc:hover .kick-mini { opacity: 1; }
 .sc.spec { opacity: .8; padding: 3px 12px; font-weight: 800; }
 .sound-btn { background: transparent; border: 2px solid var(--line); border-radius: 10px; color: inherit; cursor: pointer; font-size: 1.05rem; padding: 3px 8px; }
+
+/* --- accueil animé */
+.home { position: relative; overflow: hidden; isolation: isolate; }
+.home-card { position: relative; z-index: 2; animation: rise .7s cubic-bezier(.2, .9, .3, 1.2) both; }
+.aurora { position: absolute; inset: 0; z-index: 0; pointer-events: none; filter: blur(70px); opacity: .55; }
+.aurora i { position: absolute; width: 46vmax; height: 46vmax; border-radius: 50%; animation: drift 18s ease-in-out infinite alternate; }
+.aurora i:nth-child(1) { background: #ff4f9a; left: -12vmax; top: -14vmax; }
+.aurora i:nth-child(2) { background: #6d4aff; right: -14vmax; top: 10vh; animation-duration: 23s; animation-delay: -6s; }
+.aurora i:nth-child(3) { background: #3ee6d1; left: 20vw; bottom: -26vmax; animation-duration: 27s; animation-delay: -11s; opacity: .8; }
+.floaters { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.floater { position: absolute; bottom: -4rem; opacity: .0; animation: floatup linear infinite; filter: drop-shadow(0 6px 10px #0006); }
+.hero h1 { animation: pop .6s cubic-bezier(.2, .9, .3, 1.4) both; }
+.hero h1 b { background: linear-gradient(90deg, var(--pink), #ff9ad0, var(--pink)); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 4s linear infinite; }
+.gchips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 12px; }
+.gchips span { background: #ffffff14; border: 1.5px solid #ffffff2a; border-radius: 99px; padding: 3px 11px; font-weight: 800; font-size: .82rem; backdrop-filter: blur(4px); animation: rise .5s both; }
+@keyframes drift { to { transform: translate(14vmax, 10vmax) scale(1.2); } }
+@keyframes floatup { 0% { transform: translateY(0) rotate(-10deg); opacity: 0; } 10% { opacity: .55; } 90% { opacity: .35; } 100% { transform: translateY(-115vh) rotate(18deg); opacity: 0; } }
+@keyframes shimmer { to { background-position: -200% 0; } }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .aurora i, .floater, .hero h1 b, .gchips span, .home-card, .hero h1 { animation: none !important; } .floater { opacity: .25; bottom: 10%; } }
+.hero h1 b { text-shadow: none; filter: drop-shadow(0 5px 0 #0005); }

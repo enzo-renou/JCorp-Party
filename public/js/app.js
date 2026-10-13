@@ -118,8 +118,10 @@ function Home() {
   codeIn.addEventListener('keydown', (e) => { if (e.key === 'Enter') go('join'); });
   nameIn.addEventListener('keydown', (e) => { if (e.key === 'Enter') go(codeIn.value.length === 4 ? 'join' : 'create'); });
 
-  const el = h('div', { class: 'home' }, h('div', { class: 'home-card' },
-    h('div', { class: 'hero' }, h('h1', {}, h('b', {}, 'JCorp'), ' ', h('i', {}, 'Party')), h('p', {}, '5 mini-jeux · 1 maître du jeu par manche · 0 pitié 🎉')),
+  const floaters = ['🎨', '🧠', '🌍', '🕵️', '🎤', '🎉', '🏆', '🎲'].map((e, i) => h('span', { class: 'floater', style: { left: `${6 + (i * 12.5) % 90}%`, animationDuration: `${14 + (i * 3) % 9}s`, animationDelay: `${-i * 2.3}s`, fontSize: `${1.6 + (i % 3) * 0.7}rem` } }, e));
+  const el = h('div', { class: 'home' }, h('div', { class: 'aurora' }, h('i'), h('i'), h('i')), h('div', { class: 'floaters' }, floaters), h('div', { class: 'home-card' },
+    h('div', { class: 'hero' }, h('h1', {}, h('b', {}, 'JCorp'), ' ', h('i', {}, 'Party')), h('p', {}, '5 mini-jeux · 1 maître du jeu par manche · 0 pitié 🎉'),
+      h('div', { class: 'gchips' }, [['🎨', 'Skribbl'], ['🧠', 'Culture G'], ['🌍', 'Géo'], ['🕵️', 'Imposteur'], ['🎤', 'Mastergoon']].map(([e, n], i) => h('span', { style: { animationDelay: `${i * 90}ms` } }, e, ' ', n)))),
     h('div', { class: 'card col' },
       avBox,
       h('div', {}, h('label', { class: 'field' }, 'Pseudo'), nameIn),
