@@ -1,0 +1,119 @@
+[
+{
+"t": "text",
+"q": "Qui a réalisé le film « Mulholland Drive » ?",
+"a": [
+"David Lynch",
+"Lynch"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans quel film trouve-t-on la réplique « Je suis ton père » (version originale incluse) ?",
+"a": [
+"L'Empire contre-attaque",
+"Star Wars V",
+"Star Wars L'Empire contre-attaque",
+"The Empire Strikes Back"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel acteur joue le Joker dans « The Dark Knight » (2008) ?",
+"a": [
+"Heath Ledger",
+"Ledger"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel film a remporté la Palme d'or 2019 à Cannes ?",
+"a": [
+"Parasite"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui a réalisé « Pulp Fiction » ?",
+"a": [
+"Tarantino",
+"Quentin Tarantino"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans la série « Breaking Bad », quel est le vrai nom de Heisenberg ?",
+"a": [
+"Walter White",
+"Walter Hartwell White"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le nom de la planète d'origine des Na'vi dans « Avatar » ?",
+"a": [
+"Pandora"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel réalisateur est derrière « Inception » et « Interstellar » ?",
+"a": [
+"Christopher Nolan",
+"Nolan"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans « Game of Thrones », quelle maison a pour devise « Winter is coming » ?",
+"a": [
+"Stark",
+"Maison Stark"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel film de 1994 de Frank Darabont est adapté d'une nouvelle de Stephen King et se passe à Shawshank ?",
+"a": [
+"Les Évadés",
+"Les Evades",
+"The Shawshank Redemption"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui interprète Tony Montana dans « Scarface » (1983) ?",
+"a": [
+"Al Pacino",
+"Pacino"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel studio a produit « Le Voyage de Chihiro » ?",
+"a": [
+"Ghibli",
+"Studio Ghibli"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans quelle ville se déroule la série « The Wire » ?",
+"a": [
+"Baltimore"
+],
+"d": 3
+}
+]

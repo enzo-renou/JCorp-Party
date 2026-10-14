@@ -1,0 +1,85 @@
+[
+{
+"t": "text",
+"q": "Comment s'appelle l'auteur du manga One Piece ?",
+"a": [
+"Eiichiro Oda",
+"Oda"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans « Death Note », comment s'appelle le dieu de la mort de Light ?",
+"a": [
+"Ryuk"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel anime met en scène le « Survey Corps » contre des Titans ?",
+"a": [
+"L'Attaque des Titans",
+"Attack on Titan",
+"Shingeki no Kyojin"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Comment s'appelle le frère d'Edward Elric dans « Fullmetal Alchemist » ?",
+"a": [
+"Alphonse",
+"Alphonse Elric"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans « Naruto », comment s'appelle le démon enfermé dans Naruto ?",
+"a": [
+"Kyubi",
+"Kurama",
+"Neuf-Queues"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui a créé le manga « Dragon Ball » ?",
+"a": [
+"Akira Toriyama",
+"Toriyama"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans « Evangelion », comment s'appelle le pilote de l'EVA-01 ?",
+"a": [
+"Shinji",
+"Shinji Ikari"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le nom du capitaine des Chapeaux de paille dans One Piece ?",
+"a": [
+"Luffy",
+"Monkey D. Luffy"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans « Hunter x Hunter », comment s'appelle le meilleur ami de Gon ?",
+"a": [
+"Kirua",
+"Killua",
+"Kirua Zoldyck"
+],
+"d": 3
+}
+]

@@ -1,0 +1,116 @@
+[
+{
+"t": "text",
+"q": "Quel pays a remporté la première Coupe du monde de football en 1930 ?",
+"a": [
+"Uruguay"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui est le meilleur buteur de l'histoire de la Coupe du monde avec 16 buts ?",
+"a": [
+"Klose",
+"Miroslav Klose"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel club a remporté la première Ligue des champions (Coupe d'Europe des clubs champions) en 1956 ?",
+"a": [
+"Real Madrid"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel joueur français a marqué 13 buts lors de la Coupe du monde 1958 ?",
+"a": [
+"Just Fontaine",
+"Fontaine"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans quel stade joue le Borussia Dortmund ?",
+"a": [
+"Signal Iduna Park",
+"Westfalenstadion"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel gardien a remporté le Ballon d'or en 1963, seul gardien à l'avoir obtenu ?",
+"a": [
+"Lev Yachine",
+"Yachine",
+"Lev Yashin",
+"Yashin"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel pays a organisé l'Euro 2008 avec l'Autriche ?",
+"a": [
+"Suisse"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel club anglais est surnommé « The Toffees » ?",
+"a": [
+"Everton"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui a marqué le but en or décisif de l'Euro 2000 pour la France en finale ?",
+"a": [
+"Trezeguet",
+"David Trezeguet"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel club italien est surnommé « la Vieille Dame » ?",
+"a": [
+"Juventus",
+"Juve"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "En quelle année la France a-t-elle remporté sa première Coupe du monde ?",
+"a": [
+"1998"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel joueur détient le record de buts en une saison de Premier League (36 buts en 38 matchs) ?",
+"a": [
+"Haaland",
+"Erling Haaland"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel entraîneur a dirigé Leicester lors de son titre de champion d'Angleterre en 2016 ?",
+"a": [
+"Ranieri",
+"Claudio Ranieri"
+],
+"d": 3
+}
+]

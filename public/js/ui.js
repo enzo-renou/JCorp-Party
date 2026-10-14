@@ -94,3 +94,44 @@ export function copy(text) {
   try { document.execCommand('copy'); } catch { /* rien */ }
   t.remove(); return Promise.resolve(true);
 }
+
+/**
+ * Champ de réponse « sans bouton obligatoire » : ce qu'on tape est enregistré tout seul (brouillon) et reste
+ * modifiable ; Entrée ou le bouton valident (et préviennent les autres que tu as fini).
+ * onSend(texte, brouillon:boolean)
+ */
+export function answerBox({ placeholder = 'Ta réponse…', value = '', maxLength = 80, label = 'Valider', onSend }) {
+  const input = h('input', { class: 'input', placeholder, maxLength, value, autocomplete: 'off', autocapitalize: 'off', spellcheck: false });
+  const btn = h('button', { class: 'btn cyan' }, label);
+  const note = h('div', { class: 'answer-note muted' });
+  let timer = null, sent = value.trim(), isFinal = false;
+  const paint = () => {
+    btn.textContent = isFinal ? '✓ Validée' : label;
+    btn.classList.toggle('done', isFinal);
+    note.textContent = isFinal ? 'Réponse validée — tu peux encore la modifier.' : input.value.trim() ? 'Enregistré automatiquement : ta réponse sera prise en compte même sans valider.' : '';
+  };
+  const send = (draft) => {
+    clearTimeout(timer); timer = null;
+    const t = input.value.trim();
+    if (draft && t === sent) return;
+    if (!draft && !t) return;
+    sent = t; isFinal = !draft; onSend(t, draft); paint();
+  };
+  input.addEventListener('input', () => { isFinal = false; paint(); clearTimeout(timer); timer = setTimeout(() => send(true), 350); });
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') send(false); });
+  input.addEventListener('blur', () => { if (timer) send(true); });
+  btn.addEventListener('click', () => send(false));
+  const row = h('div', { class: 'answer-row' }, input, btn);
+  return {
+    el: h('div', { class: 'answer-box' }, row, note), input, row,
+    /** synchronise avec l'état du serveur (sans écraser ce que le joueur est en train de taper) */
+    sync({ text, final }) {
+      if (timer) return;
+      if (document.activeElement !== input && typeof text === 'string' && text !== input.value && !isFinal) input.value = text;
+      isFinal = !!final && input.value.trim() === (text ?? input.value).trim();
+      sent = input.value.trim(); paint();
+    },
+    disable(d) { input.disabled = d; btn.disabled = d; },
+    focus() { setTimeout(() => input.focus(), 50); },
+  };
+}

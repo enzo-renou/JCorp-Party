@@ -1,5 +1,5 @@
 // Mastergoon : "Ne dis pas la même chose que moi"
-import { h, fill, avatar, clock, timerBar } from '../ui.js';
+import { h, fill, avatar, clock, timerBar, answerBox } from '../ui.js';
 
 const REASON = { same: 'même réponse que le maître', invalid: 'réponse invalide', timeout: 'pas de réponse' };
 const VERD = { survive: ['✅', 'Survit'], out: ['💀', 'Éliminé'], revive: ['✨', 'Ressuscité'], fail: ['❌', 'Raté'] };
@@ -25,6 +25,7 @@ export default function create(api) {
       h('div', { class: 'muted' }, 'Ne donne PAS la même réponse que lui, sinon tu es éliminé ! Les survivants marquent 1 point par question.'), status(v)));
   }
 
+  let box = null;
   function answering(v) {
     const isMg = api.me() === v.masterId;
     const k = `a${v.qIndex}`;
@@ -33,26 +34,18 @@ export default function create(api) {
     const players = P();
     const dead = !isMg && v.alive[api.me()] === false;
     if (rebuild) {
-      const input = h('input', { class: 'input', id: 'mg-in', placeholder: isMg ? 'Ta réponse secrète…' : 'Ta réponse…', maxLength: 60, autocomplete: 'off', spellcheck: false, value: v.mine || '' });
-      const send = () => { const t = input.value.trim(); if (t) api.action({ type: 'answer', text: t }); };
-      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') send(); });
+      box = answerBox({ placeholder: isMg ? 'Ta réponse secrète…' : dead ? 'Joker : trouve la réponse du maître…' : 'Ta réponse…', maxLength: 60, value: v.mine || '',
+        onSend: (text, draft) => api.action({ type: dead ? 'joker' : 'answer', text, draft }) });
       fill(el, head(v, isMg ? '👑 Tu es le maître' : '🧠 Mastergoon'), timerBar(v.endsAt),
         h('div', { class: 'card col', style: { marginTop: '12px' } }, qcard(v),
-          dead ? h('div', { class: 'center muted' }, '💀 Tu es éliminé (sauf joker)…') : null,
-          (!dead || v.canJoker) ? h('div', { class: 'answer-row' }, input, h('button', { class: 'btn cyan', onClick: send }, 'Valider')) : null,
-          h('div', { id: 'mg-st', class: 'muted center' }), h('div', { id: 'mg-jk', class: 'center' })),
+          dead ? h('div', { class: 'banner' }, v.canJoker ? '💀 Tu es éliminé : tente le joker en devinant la même réponse que le maître !' : '💀 Tu es éliminé.') : null,
+          (!dead || v.canJoker) ? box.el : null,
+          dead && v.canJoker ? h('div', { class: 'center' }, h('button', { class: 'btn sm', id: 'mg-pass', onClick: () => api.action({ type: 'jokerPass' }) }, 'Passer mon joker')) : null),
         h('div', { class: 'spacer' }), h('div', { class: 'avs', id: 'mg-av' }), status(v));
-      if (!dead || v.canJoker) setTimeout(() => input.focus(), 50);
+      if (!dead || v.canJoker) box.focus();
     }
-    const st = el.querySelector('#mg-st');
-    if (st) st.textContent = v.mine ? `✅ Réponse envoyée : « ${v.mine} » (modifiable)` : '';
-    const jk = el.querySelector('#mg-jk');
-    if (jk && v.jokerEnabled && !isMg) {
-      fill(jk, v.canJoker ? h('div', { class: 'joker card flat' },
-        h('div', {}, dead ? '🃏 Joker : trouve la même réponse que le maître pour revenir en jeu !' : '🃏 Des joueurs éliminés peuvent tenter un joker.'),
-        dead ? (v.jokerActive ? h('b', {}, 'Joker actif ✔') : h('button', { class: 'btn yellow', onClick: () => api.action({ type: 'joker' }) }, 'Utiliser le joker')) : null,
-        !dead && !v.jokerPassed ? h('button', { class: 'btn', onClick: () => api.action({ type: 'jokerPass' }) }, 'Passer') : null) : null);
-    }
+    box.sync({ text: v.mine, final: v.mineFinal });
+    el.querySelector('#mg-pass')?.toggleAttribute('disabled', !!v.jokerPassed);
     const av = el.querySelector('#mg-av');
     if (av) fill(av, Object.keys(v.alive).map((id) => h('span', { class: `av-tag ${answered.has(id) ? 'done' : ''}` }, avatar(players[id]?.avatar, 'sm'), players[id]?.name, answered.has(id) ? ' ✓' : '')));
   }

@@ -1,0 +1,101 @@
+[
+{
+"t": "text",
+"q": "Quel est le symbole chimique du tungstène ?",
+"a": [
+"W"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quelle est la vitesse de la lumière dans le vide, en km/s (arrondie) ?",
+"a": [
+"300000",
+"299792",
+"300 000",
+"299 792"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est l'os le plus long du corps humain ?",
+"a": [
+"Fémur",
+"Femur"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quelle particule porte une charge électrique négative dans l'atome ?",
+"a": [
+"Électron",
+"Electron"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel scientifique a formulé la théorie de la relativité générale ?",
+"a": [
+"Einstein",
+"Albert Einstein"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est l'élément le plus abondant dans l'univers ?",
+"a": [
+"Hydrogène",
+"Hydrogene"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le nom du plus grand satellite de Saturne ?",
+"a": [
+"Titan"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Combien de chromosomes possède un être humain ?",
+"a": [
+"46"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Comment s'appelle l'unité de mesure de la fréquence ?",
+"a": [
+"Hertz",
+"Hz"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel gaz est le plus abondant dans l'atmosphère terrestre ?",
+"a": [
+"Azote",
+"Diazote",
+"N2"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel physicien a découvert la radioactivité en 1896 ?",
+"a": [
+"Becquerel",
+"Henri Becquerel"
+],
+"d": 3
+}
+]

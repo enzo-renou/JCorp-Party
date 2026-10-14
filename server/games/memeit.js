@@ -40,6 +40,7 @@ class MemeIt extends Game {
     this.captionTime = [30, 60, 90, 120].includes(Number(options.captionTime)) ? Number(options.captionTime) : 90;
     this.mode = ['normal', 'topics', 'same', 'relaxed'].includes(options.mode) ? options.mode : 'normal';
     this.family = options.family === true;
+    this.maxRerolls = [0, 3, 5, 10].includes(Number(options.rerolls)) ? Number(options.rerolls) : 5;
     this.used = (ctx.memory.memeUsed ||= new Set());
     this.raw = Object.fromEntries(this.ids.map((id) => [id, 0]));
     this.round = -1;
@@ -66,7 +67,7 @@ class MemeIt extends Game {
     this.players = this.connectedIds();
     this.topic = this.mode === 'topics' ? sample(TOPICS, 1)[0] : null;
     this.tpl = {};
-    this.rerolled = new Set();
+    this.rerolled = {};
     this.drafts = {};
     this.ready = new Set();
     if (this.mode === 'same') { const t = this.drawTemplate(); for (const id of this.players) this.tpl[id] = t; }
@@ -187,8 +188,8 @@ class MemeIt extends Game {
       }
       case 'unsubmit': if (this.phase === 'creating') { this.ready.delete(pid); this.update(); } break;
       case 'reroll': {
-        if (this.phase !== 'creating' || !this.players.includes(pid) || this.mode === 'same' || this.rerolled.has(pid) || this.ready.has(pid)) return;
-        this.rerolled.add(pid);
+        if (this.phase !== 'creating' || !this.players.includes(pid) || this.mode === 'same' || (this.rerolled[pid] || 0) >= this.maxRerolls || this.ready.has(pid)) return;
+        this.rerolled[pid] = (this.rerolled[pid] || 0) + 1;
         this.tpl[pid] = this.drawTemplate(new Set(Object.values(this.tpl).map((t) => t.id)));
         this.update();
         break;
@@ -235,7 +236,8 @@ class MemeIt extends Game {
       v.draft = this.drafts[pid] || [];
       v.ready = this.ready.has(pid);
       v.readyIds = [...this.ready];
-      v.canReroll = this.mode !== 'same' && !this.rerolled.has(pid) && !this.ready.has(pid);
+      v.rerollsLeft = this.mode === 'same' ? 0 : Math.max(0, this.maxRerolls - (this.rerolled[pid] || 0));
+      v.canReroll = v.rerollsLeft > 0 && !this.ready.has(pid);
     }
     if (this.phase === 'voting' || this.phase === 'memeResult') {
       const m = this.memes[this.idx];

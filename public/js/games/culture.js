@@ -1,5 +1,5 @@
 // Culture G : questionnaire, le maître du jeu corrige
-import { h, fill, avatar, clock, timerBar } from '../ui.js';
+import { h, fill, avatar, clock, timerBar, answerBox } from '../ui.js';
 
 const CAT = {
   foot: '⚽ Foot', cinema: '🎬 Ciné & séries', musique: '🎵 Musique', 'jeux-video': '🎮 Jeux vidéo', anime: '🍥 Anime & manga', histoire: '🏛️ Histoire & mythes',
@@ -9,7 +9,7 @@ const CAT = {
 export default function create(api) {
   const el = h('div');
   let shownIdx = -2;
-  let input = null;
+  let box = null;
   let lastPhase = null;
 
   function qCard(q) {
@@ -28,19 +28,16 @@ export default function create(api) {
     const answered = new Set(v.answered);
     if (shownIdx !== v.idx || lastPhase !== 'question') {
       shownIdx = v.idx;
-      input = h('input', { class: 'input', placeholder: 'Ta réponse…', maxLength: 80, autocomplete: 'off', autocapitalize: 'off', spellcheck: false, value: v.mine || '' });
-      const status = h('div', { class: 'muted center', id: 'cq-status' });
-      const send = () => { const t = input.value.trim(); if (t) api.action({ type: 'answer', text: t }); };
-      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') send(); });
+      box = answerBox({ value: v.mine || '', onSend: (text, draft) => api.action({ type: 'answer', text, draft }) });
       fill(el, h('div', { class: 'gh' }, h('h2', {}, `Question ${v.idx + 1}/${v.total}`), h('span', { class: 'grow' }), h('div', { class: 'row' }, clock(v.endsAt))),
         timerBar(v.endsAt, v.time * 1000),
-        h('div', { class: 'card', style: { marginTop: '12px' } }, qCard(v.q),
-          h('div', { class: 'answer-row' }, input, h('button', { class: 'btn cyan', onClick: send }, 'Valider')), status),
+        h('div', { class: 'card', style: { marginTop: '12px' } }, qCard(v.q), box.el, h('div', { class: 'muted center', id: 'cq-status' })),
         h('div', { class: 'spacer' }), h('div', { class: 'avs', id: 'cq-avs' }));
-      setTimeout(() => input.focus(), 50);
+      box.focus();
     }
+    box.sync({ text: v.mine, final: v.mineFinal });
     const status = el.querySelector('#cq-status');
-    status.textContent = v.mine ? `✅ Réponse envoyée : « ${v.mine} » (tu peux la modifier)` : state.me === v.masterId ? '🧑‍⚖️ Tu es le maître : tu corrigeras les réponses à la fin. Tes réponses sont corrigées automatiquement.' : '';
+    status.textContent = state.me === v.masterId ? '🧑‍⚖️ Tu corriges les réponses à la fin (les tiennes sont corrigées automatiquement).' : '';
     fill(el.querySelector('#cq-avs'), Object.values(players).map((p) => h('span', { class: `av-tag ${answered.has(p.id) ? 'done' : ''}` }, avatar(p.avatar, 'sm'), p.name, answered.has(p.id) ? ' ✓' : '')));
   }
 

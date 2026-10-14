@@ -1,0 +1,89 @@
+[
+{
+"t": "text",
+"q": "Quel est le plus petit pays du monde ?",
+"a": [
+"Vatican",
+"Vatican City",
+"Cité du Vatican",
+"Le Vatican"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Combien de côtés compte un dodécagone ?",
+"a": [
+"12",
+"douze"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le plus grand désert chaud du monde ?",
+"a": [
+"Sahara"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est l'animal terrestre le plus rapide ?",
+"a": [
+"Guépard",
+"Guepard"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le fleuve le plus long d'Europe ?",
+"a": [
+"Volga"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans quel pays se trouve le Machu Picchu ?",
+"a": [
+"Pérou",
+"Perou"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le plus haut sommet d'Afrique ?",
+"a": [
+"Kilimandjaro",
+"Kilimanjaro"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quelle ville est surnommée « la ville éternelle » ?",
+"a": [
+"Rome"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel élément chimique a pour symbole Au ?",
+"a": [
+"Or"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quelle est la monnaie du Japon ?",
+"a": [
+"Yen"
+],
+"d": 3
+}
+]

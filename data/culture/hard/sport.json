@@ -1,0 +1,64 @@
+[
+{
+"t": "text",
+"q": "Combien de Grands Chelems Rafael Nadal a-t-il remportés en simple ?",
+"a": [
+"22"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel pays a remporté le plus de médailles d'or aux JO d'été de l'histoire ?",
+"a": [
+"États-Unis",
+"Etats-Unis",
+"USA"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans quelle ville ont eu lieu les JO d'été de 1992 ?",
+"a": [
+"Barcelone"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel pilote détient le record de 7 titres de champion du monde de F1 à égalité avec Schumacher ?",
+"a": [
+"Hamilton",
+"Lewis Hamilton"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Combien de joueurs composent une équipe de rugby à XV sur le terrain ?",
+"a": [
+"15",
+"quinze"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le record du monde du 100 m masculin (en secondes) ?",
+"a": [
+"9,58",
+"9.58"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans quel sport utilise-t-on un « birdie » ?",
+"a": [
+"Badminton",
+"Golf"
+],
+"d": 3
+}
+]

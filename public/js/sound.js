@@ -1,20 +1,15 @@
-// Sons et musique générés avec WebAudio (aucun fichier à charger).
-// Deux réglages indépendants : musique d'ambiance et effets sonores (activation + volume), mémorisés dans le navigateur.
+// Effets sonores générés avec WebAudio (aucun fichier à charger). Activation + volume mémorisés dans le navigateur.
 import { prefs } from './net.js';
 
 const num = (k, d) => { const v = parseFloat(prefs.get(k, d)); return Number.isFinite(v) ? Math.min(1, Math.max(0, v)) : d; };
-const settings = {
-  music: prefs.get('music', '1') === '1', musicVol: num('musicVol', 0.3),
-  sfx: prefs.get('sfx', '1') === '1', sfxVol: num('sfxVol', 0.6),
-};
+const settings = { sfx: prefs.get('sfx', '1') === '1', sfxVol: num('sfxVol', 0.6) };
 const listeners = new Set();
 const save = () => {
-  prefs.set('music', settings.music ? '1' : '0'); prefs.set('musicVol', settings.musicVol);
   prefs.set('sfx', settings.sfx ? '1' : '0'); prefs.set('sfxVol', settings.sfxVol);
   listeners.forEach((f) => f({ ...settings }));
 };
 
-let ctx = null, master = null, sfxBus = null, musicBus = null, verb = null;
+let ctx = null, master = null, sfxBus = null, verb = null;
 
 function init() {
   if (ctx) return ctx;
@@ -29,8 +24,8 @@ function init() {
     const fb = ctx.createGain(); fb.gain.value = 0.38;
     const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 1800;
     verb.connect(delay); delay.connect(lp); lp.connect(fb); fb.connect(delay); lp.connect(master);
-    sfxBus = ctx.createGain(); musicBus = ctx.createGain();
-    sfxBus.connect(master); sfxBus.connect(verb); musicBus.connect(master); musicBus.connect(verb);
+    sfxBus = ctx.createGain();
+    sfxBus.connect(master); sfxBus.connect(verb);
     master.connect(comp); comp.connect(ctx.destination);
     applyVolumes();
   } catch { ctx = null; }
@@ -40,7 +35,6 @@ function applyVolumes() {
   if (!ctx) return;
   const t = ctx.currentTime;
   sfxBus.gain.setTargetAtTime(settings.sfx ? settings.sfxVol : 0, t, 0.05);
-  musicBus.gain.setTargetAtTime(settings.music ? settings.musicVol * 0.55 : 0, t, 0.3);
 }
 
 // ---------------------------------------------------------------- notes douces (sinus + léger harmonique, filtrées)
@@ -72,49 +66,15 @@ const SOUNDS = {
 };
 export function sfx(name) { if (!settings.sfx || settings.sfxVol <= 0 || !init()) return; resume(); try { SOUNDS[name]?.(); } catch { /* son indisponible */ } }
 
-// ---------------------------------------------------------------- musique d'ambiance générative (calme, sans percussions)
-const CHORDS = [[57, 60, 64, 67], [53, 57, 60, 64], [48, 52, 55, 59], [55, 59, 62, 66]]; // Am7 – Fmaj7 – Cmaj7 – G6
-const SCALE = [69, 72, 74, 76, 79, 81, 84]; // pentatonique la mineur
-const BEAT = 0.75;
-let musicTimer = null, nextBar = 0, barIdx = 0;
-
-function scheduleBar() {
-  const c = ctx; const chord = CHORDS[barIdx % CHORDS.length];
-  const start = Math.max(0, nextBar - c.currentTime);
-  const len = BEAT * 8;
-  for (const m of chord) note(musicBus, m - 12 + (m > 62 ? -12 : 0), start, len + 0.8, { vol: .22, attack: 1.4, cutoff: 700, bell: 0, type: 'triangle' });
-  // arpège aérien : quelques notes de la gamme, jamais deux fois la même phrase
-  for (let i = 0; i < 8; i++) {
-    if (Math.random() < 0.38) continue;
-    const m = Math.random() < 0.5 ? chord[(i >> 1) % 4] + 12 : SCALE[Math.floor(Math.random() * SCALE.length)];
-    note(musicBus, m, start + i * BEAT + (Math.random() * 0.05), 1.6, { vol: .12, attack: 0.01, cutoff: 1800, bell: 0.15 });
-  }
-  nextBar += len; barIdx++;
-}
-function musicLoop() {
-  if (!ctx || !settings.music || ctx.state !== 'running') return;
-  if (!nextBar || nextBar < ctx.currentTime - 1) nextBar = ctx.currentTime + 0.1;
-  while (nextBar < ctx.currentTime + 6) scheduleBar();
-}
-function startMusic() {
-  if (!settings.music || !init()) return;
-  resume();
-  if (!musicTimer) musicTimer = setInterval(musicLoop, 1000);
-  musicLoop();
-}
-function stopMusic() { clearInterval(musicTimer); musicTimer = null; nextBar = 0; }
-function resume() { if (ctx && ctx.state === 'suspended') ctx.resume().then(musicLoop).catch(() => {}); }
+function resume() { if (ctx && ctx.state === 'suspended') ctx.resume().catch(() => {}); }
 
 // ---------------------------------------------------------------- réglages
 export const getSettings = () => ({ ...settings });
 export function setSettings(patch) {
   Object.assign(settings, patch);
   save();
-  if (settings.music) startMusic(); else stopMusic();
   applyVolumes();
 }
 export const onSettings = (f) => { listeners.add(f); return () => listeners.delete(f); };
-// les navigateurs exigent un geste de l'utilisateur avant tout son : on démarre à la première interaction
-addEventListener('pointerdown', () => { if (settings.music) startMusic(); else init(); }, { once: true });
-addEventListener('keydown', () => { if (settings.music) startMusic(); }, { once: true });
-document.addEventListener('visibilitychange', () => { if (!ctx) return; if (document.hidden) ctx.suspend(); else { ctx.resume(); musicLoop(); } });
+// les navigateurs exigent un geste de l'utilisateur avant tout son
+addEventListener('pointerdown', () => init(), { once: true });

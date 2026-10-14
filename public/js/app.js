@@ -18,27 +18,20 @@ const app = document.getElementById('app');
 function SettingsMenu() {
   const panel = h('div', { class: 'settings-panel hidden', role: 'dialog', 'aria-label': 'Paramètres' });
   const btn = h('button', { class: 'settings-btn', title: 'Paramètres', 'aria-label': 'Paramètres', onClick: (e) => { e.stopPropagation(); panel.classList.toggle('hidden'); if (!panel.classList.contains('hidden')) draw(); } }, '⚙️');
-  const row = (icon, label, key, volKey, test) => {
-    const st = getSettings();
-    const range = h('input', { type: 'range', min: 0, max: 100, value: Math.round(st[volKey] * 100), disabled: !st[key], 'aria-label': `Volume ${label}`,
-      onInput: (e) => setSettings({ [volKey]: e.target.value / 100 }), onChange: () => test?.() });
-    return h('div', { class: 'srow' },
-      h('label', { class: 'switch' }, h('input', { type: 'checkbox', checked: st[key], onChange: (e) => { setSettings({ [key]: e.target.checked }); draw(); if (e.target.checked) test?.(); } }), h('span', { class: 'sl' }), h('b', {}, `${icon} ${label}`)),
-      range, h('span', { class: 'muted pct' }, st[key] ? `${Math.round(st[volKey] * 100)}%` : 'coupé'));
-  };
   function draw() {
-    fill(panel, h('div', { class: 'stitle' }, '⚙️ Paramètres'),
-      row('🎵', 'Musique', 'music', 'musicVol'),
-      row('🔔', 'Effets sonores', 'sfx', 'sfxVol', () => sfx('good')),
-      h('div', { class: 'muted', style: { fontSize: '.8rem' } }, 'Réglages enregistrés sur cet appareil.'));
+    const st = getSettings();
+    fill(panel, h('div', { class: 'stitle' }, 'Paramètres'),
+      h('div', { class: 'srow' },
+        h('label', { class: 'switch' }, h('input', { type: 'checkbox', checked: st.sfx, onChange: (e) => { setSettings({ sfx: e.target.checked }); draw(); if (e.target.checked) sfx('good'); } }), h('span', { class: 'sl' }), h('b', {}, 'Effets sonores')),
+        h('input', { type: 'range', class: 'rng', min: 0, max: 100, value: Math.round(st.sfxVol * 100), disabled: !st.sfx, 'aria-label': 'Volume des effets sonores',
+          onInput: (e) => { setSettings({ sfxVol: e.target.value / 100 }); const p = panel.querySelector('.pct'); if (p) p.textContent = `${e.target.value}%`; }, onChange: () => sfx('good') }),
+        h('span', { class: 'muted pct' }, st.sfx ? `${Math.round(st.sfxVol * 100)}%` : 'coupé')));
   }
   draw();
   document.addEventListener('click', (e) => { if (!panel.contains(e.target) && e.target !== btn) panel.classList.add('hidden'); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') panel.classList.add('hidden'); });
   const wrap = h('div', { class: 'settings-wrap' }, btn, panel);
   document.body.append(wrap);
-  // les curseurs se mettent à jour en direct sans tout redessiner
-  panel.addEventListener('input', (e) => { if (e.target.type === 'range') { const p = e.target.parentElement.querySelector('.pct'); if (p) p.textContent = `${e.target.value}%`; } });
 }
 SettingsMenu();
 

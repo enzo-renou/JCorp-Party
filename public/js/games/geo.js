@@ -1,5 +1,5 @@
 // Quiz Géo : carte, capitales, drapeaux
-import { h, fill, avatar, clock, timerBar } from '../ui.js';
+import { h, fill, avatar, clock, timerBar, answerBox } from '../ui.js';
 import { createMap, loadWorld } from '../map.js';
 
 const fmt = (n) => String(n).replace('.', ',');
@@ -7,7 +7,7 @@ const fmt = (n) => String(n).replace('.', ',');
 export default function create(api) {
   const el = h('div');
   let shownKey = null;
-  let map = null;
+  let map = null, box = null, btn = null;
   loadWorld();
 
   const secBadge = (v) => h('span', { class: 'sec-tag' }, `${v.sections[v.q.section].emoji} ${v.sections[v.q.section].label}`);
@@ -24,31 +24,25 @@ export default function create(api) {
     const answered = new Set(v.answered);
     if (shownKey !== key) {
       shownKey = key;
-      map?.destroy(); map = null;
+      map?.destroy(); map = null; box = null; btn = null;
       let body;
       if (v.q.section === 'loc') {
-        const btn = h('button', { class: 'btn big green', disabled: true, onClick: () => { const p = map.getPin(); if (p) { api.action({ type: 'answer', lat: p[0], lng: p[1] }); map.lock(); btn.disabled = true; } } }, '📍 Valider ma position');
-        map = createMap({ interactive: true, onPick: () => { btn.disabled = false; } });
-        if (v.mine) { map.setPin(v.mine.lat, v.mine.lng); map.lock(); }
+        // un clic pose (ou déplace) le point : enregistré tout seul ; « Valider » prévient les autres que tu as fini
+        const sendPin = (draft) => { const p = map.getPin(); if (p) api.action({ type: 'answer', lat: p[0], lng: p[1], draft }); };
+        btn = h('button', { class: 'btn big green', disabled: true, onClick: () => { sendPin(false); btn.textContent = '✓ Position validée'; btn.classList.add('done'); } }, '📍 Valider ma position');
+        map = createMap({ interactive: true, onPick: () => { btn.disabled = false; btn.textContent = '📍 Valider ma position'; btn.classList.remove('done'); sendPin(true); } });
+        if (v.mine) { map.setPin(v.mine.lat, v.mine.lng); btn.disabled = false; }
         body = [h('div', { class: 'qtext center', style: { marginBottom: '10px' } }, v.q.prompt), map.el,
-          h('div', { class: 'row', style: { justifyContent: 'center', marginTop: '12px' } }, btn, h('span', { class: 'muted', id: 'geo-status' }), h('span', { class: 'muted' }, 'Clique sur la carte (molette / pincement pour zoomer)'))];
-        if (v.mine) btn.disabled = true;
+          h('div', { class: 'row', style: { justifyContent: 'center', marginTop: '12px' } }, btn, h('span', { class: 'muted', id: 'geo-status' }), h('span', { class: 'muted' }, 'Clique sur la carte, tu peux déplacer ton point jusqu’à la fin du temps'))];
       } else {
-        const input = h('input', { class: 'input', placeholder: v.q.section === 'flag' ? 'Nom du pays…' : 'Ta réponse…', maxLength: 60, autocomplete: 'off', autocapitalize: 'off', spellcheck: false });
-        const send = () => { const t = input.value.trim(); if (t) api.action({ type: 'answer', text: t }); };
-        input.addEventListener('keydown', (e) => { if (e.key === 'Enter') send(); });
-        body = [h('div', { class: 'qcard' }, h('div', { class: 'qtext' }, v.q.prompt), v.q.flag ? h('img', { class: 'flag', src: `/flags/${v.q.flag}.svg`, alt: 'drapeau à deviner' }) : null,
-          h('div', { class: 'answer-row' }, input, h('button', { class: 'btn cyan', id: 'geo-send', onClick: send }, 'Valider')), h('div', { class: 'muted', id: 'geo-status', style: { marginTop: '8px' } }))];
-        setTimeout(() => input.focus(), 60);
+        box = answerBox({ placeholder: v.q.section === 'flag' ? 'Nom du pays…' : 'Ta réponse…', maxLength: 60, value: v.mine?.text || '', onSend: (text, draft) => api.action({ type: 'answer', text, draft }) });
+        body = [h('div', { class: 'qcard' }, h('div', { class: 'qtext' }, v.q.prompt), v.q.flag ? h('img', { class: 'flag', src: `/flags/${v.q.flag}.svg`, alt: 'drapeau à deviner' }) : null, box.el)];
+        box.focus();
       }
-      fill(el, header(v), timerBar(v.endsAt, v.sections[v.q.section].time * 1000), h('div', { class: 'card', style: { marginTop: '12px' } }, body), h('div', { class: 'spacer' }), h('div', { class: 'avs', id: 'geo-avs' }));
+    fill(el, header(v), timerBar(v.endsAt, v.sections[v.q.section].time * 1000), h('div', { class: 'card', style: { marginTop: '12px' } }, body), h('div', { class: 'spacer' }), h('div', { class: 'avs', id: 'geo-avs' }));
     }
-    const st = el.querySelector('#geo-status');
-    if (st && v.mine) st.textContent = '✅ Réponse envoyée, on attend les autres…';
-    if (v.mine && v.q.section !== 'loc') {
-      el.querySelector('input')?.setAttribute('disabled', '');
-      el.querySelector('#geo-send')?.setAttribute('disabled', '');
-    }
+    if (box) box.sync({ text: v.mine?.text, final: v.mineFinal });
+    else if (btn && v.mineFinal && !btn.classList.contains('done')) { btn.textContent = '✓ Position validée'; btn.classList.add('done'); }
     fill(el.querySelector('#geo-avs'), Object.values(players).map((p) => h('span', { class: `av-tag ${answered.has(p.id) ? 'done' : ''}` }, avatar(p.avatar, 'sm'), p.name, answered.has(p.id) ? ' ✓' : '')));
   }
 

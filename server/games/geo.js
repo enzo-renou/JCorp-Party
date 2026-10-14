@@ -47,9 +47,9 @@ function distToCountry(ccn3, lat, lng) {
  * plus la question est difficile, plus le rayon est serré).
  */
 const TIER_PTS = { 1: 1, 2: 2, 3: 3 };
-const CAPITAL_PERFECT = 50;                       // km : pile sur la capitale
-const CAPITAL_MAX = { 1: 2000, 2: 1500, 3: 1000 }; // km : 0 point au-delà
-const COUNTRY_MAX = { 1: 1000, 2: 700, 3: 500 };   // km depuis la frontière : 0 point au-delà
+const CAPITAL_PERFECT = 40;                       // km : pile sur la capitale
+const CAPITAL_MAX = { 1: 1500, 2: 1000, 3: 600 }; // km : 0 point au-delà
+const COUNTRY_MAX = { 1: 700, 2: 450, 3: 300 };   // km depuis la frontière : 0 point au-delà
 const round1 = (n) => Math.round(n * 10) / 10;
 
 function checkLocation(q, lat, lng) {
@@ -123,7 +123,8 @@ class Geo extends Game {
     this.questions = buildQuestions(ctx.memory);
     this.idx = -1;
     this.phase = 'starting';
-    this.answers = {};   // pid -> réponse de la question courante
+    this.answers = {};   // pid -> réponse de la question courante (brouillon ou validée)
+    this.fin = new Set(); // joueurs qui ont validé
     this.log = [];       // résultats par question
     this.raw = Object.fromEntries(this.ids.map((id) => [id, 0]));
     this.endsAt = null;
@@ -137,6 +138,7 @@ class Geo extends Game {
     const q = this.questions[this.idx];
     this.phase = 'question';
     this.answers = {};
+    this.fin = new Set();
     this.endsAt = Date.now() + SECTIONS[q.section].time * 1000;
     const i = this.idx;
     this.cancel(this.timer);
@@ -146,7 +148,7 @@ class Geo extends Game {
 
   allAnswered() {
     const present = this.connectedIds();
-    return present.length > 0 && present.every((id) => this.answers[id]);
+    return present.length > 0 && present.every((id) => this.fin.has(id));
   }
 
   reveal() {
@@ -178,7 +180,7 @@ class Geo extends Game {
   }
 
   onAction(pid, msg) {
-    if (msg.type !== 'answer' || this.phase !== 'question' || this.answers[pid]) return;
+    if (msg.type !== 'answer' || this.phase !== 'question') return;
     const q = this.questions[this.idx];
     if (q.section === 'loc') {
       const lat = Number(msg.lat), lng = Number(msg.lng);
@@ -186,9 +188,10 @@ class Geo extends Game {
       this.answers[pid] = { lat: clamp(lat, -90, 90), lng: clamp(lng, -180, 180) };
     } else {
       const text = String(msg.text ?? '').replace(/\s+/g, ' ').trim().slice(0, 60);
-      if (!text) return;
+      if (!text) { if (msg.draft) { delete this.answers[pid]; this.fin.delete(pid); this.update(); } return; }
       this.answers[pid] = { text };
     }
+    if (msg.draft) this.fin.delete(pid); else this.fin.add(pid);
     this.update();
     if (this.allAnswered()) { const i = this.idx; this.after(900, () => { if (this.idx === i) this.reveal(); }); }
   }
@@ -212,8 +215,9 @@ class Geo extends Game {
     const v = { phase: this.phase, idx: this.idx, total: this.questions.length, endsAt: this.endsAt, raw: this.raw, max: 18, sections: SECTIONS };
     if (this.phase === 'question') {
       v.q = this.qView(this.questions[this.idx], false);
-      v.answered = Object.keys(this.answers);
+      v.answered = [...this.fin];
       v.mine = this.answers[pid] ?? null;
+      v.mineFinal = this.fin.has(pid);
     } else if (this.phase === 'reveal') {
       v.q = this.qView(this.questions[this.idx], true);
       v.rows = this.log[this.log.length - 1].rows;

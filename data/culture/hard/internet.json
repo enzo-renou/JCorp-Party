@@ -1,0 +1,62 @@
+[
+{
+"t": "text",
+"q": "Quel est le nom du créateur de Linux ?",
+"a": [
+"Linus Torvalds",
+"Torvalds"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quelle année a été fondé YouTube ?",
+"a": [
+"2005"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Que signifie l'acronyme « HTTP » ?",
+"a": [
+"HyperText Transfer Protocol",
+"Hypertext Transfer Protocol"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le premier message envoyé sur ARPANET en 1969 (deux lettres) ?",
+"a": [
+"LO",
+"Lo"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel réseau social a été racheté par Elon Musk en 2022 et renommé X ?",
+"a": [
+"Twitter"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel langage de programmation a été créé par Brendan Eich en 10 jours en 1995 ?",
+"a": [
+"JavaScript",
+"Javascript"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quelle entreprise a créé le navigateur Chromium à la base de Chrome ?",
+"a": [
+"Google"
+],
+"d": 3
+}
+]

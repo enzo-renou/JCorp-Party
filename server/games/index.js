@@ -26,9 +26,10 @@ const CATALOG = [
   {
     key: 'culture', name: 'Culture G', emoji: '🧠', color: '#ffd23f', minPlayers: 2, scale: 1,
     tagline: 'Le quiz Gen Z',
-    desc: 'Foot, rap, séries, rébus, « qui est ce joueur ? »… Tout le monde répond, le maître du jeu corrige. 1 point par bonne réponse.',
+    desc: 'Foot, rap, séries, rébus, « qui est ce joueur ? »… Tout le monde répond, le maître du jeu corrige. 1 point par bonne réponse. Difficulté réglable (par défaut : difficile).',
     options: [
       num('count', 'Nombre de questions', [10, 15, 20, 30], 15), num('time', 'Temps par question', [20, 30, 45], 25, ' s'),
+      { key: 'level', label: 'Difficulté', type: 'choice', default: 'hard', choices: [{ v: 'easy', label: 'Facile' }, { v: 'mixed', label: 'Mixte' }, { v: 'hard', label: 'Difficile' }] },
       { key: 'cats', label: 'Catégories', type: 'multi', default: CULTURE_CATS.map((c) => c[0]), choices: CULTURE_CATS.map(([v, label]) => ({ v, label })) },
     ],
     Class: () => require('./culture'),
@@ -71,6 +72,7 @@ const CATALOG = [
       num('rounds', 'Manches', [1, 2, 3, 5], 3),
       num('captionTime', 'Temps pour légender', [30, 60, 90, 120], 90, ' s'),
       { key: 'mode', label: 'Mode', type: 'choice', default: 'normal', choices: [{ v: 'normal', label: 'Normal' }, { v: 'topics', label: 'Thèmes' }, { v: 'same', label: 'Même meme' }, { v: 'relaxed', label: 'Détente' }] },
+      num('rerolls', 'Changements d’image par manche', [0, 3, 5, 10], 5, '×'),
       { key: 'family', label: 'Mode famille (filtre les gros mots)', type: 'bool', default: false },
     ],
     Class: () => require('./memeit'),

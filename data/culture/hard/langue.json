@@ -1,0 +1,54 @@
+[
+{
+"t": "text",
+"q": "Quel est le féminin du mot « sénateur » ?",
+"a": [
+"Sénatrice",
+"Senatrice"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le pluriel de « un œil » ?",
+"a": [
+"Yeux",
+"des yeux"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Comment appelle-t-on la figure de style qui consiste à exagérer ?",
+"a": [
+"Hyperbole"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel mot désigne la peur des espaces clos ?",
+"a": [
+"Claustrophobie"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quelle est la langue officielle du Brésil ?",
+"a": [
+"Portugais"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Comment dit-on « merci » en japonais ?",
+"a": [
+"Arigatou",
+"Arigato",
+"Arigatō"
+],
+"d": 3
+}
+]

@@ -44,6 +44,8 @@ class Mastergoon extends Game {
   resetQuestion() {
     this.question = null;
     this.mgAnswer = null;
+    this.mgFinal = false;
+    this.fin = new Set();
     this.mgTimeout = false;
     this.answers = {};
     this.jokerAnswers = {};
@@ -92,14 +94,15 @@ class Mastergoon extends Game {
   }
 
   // ---------------------------------------------------------------- réponses
-  submit(pid, text, useJoker) {
+  submit(pid, text, useJoker, draft = false) {
     if (this.phase !== 'answering') return;
     const t = clean(text);
     if (!t) return;
-    if (pid === this.masterId) this.mgAnswer = t;
-    else if (this.alive[pid]) this.answers[pid] = t;
+    if (pid === this.masterId) { this.mgAnswer = t; this.mgFinal = !draft; }
+    else if (this.alive[pid]) { this.answers[pid] = t; if (draft) this.fin.delete(pid); else this.fin.add(pid); }
     else if (useJoker && (this.jokerEligible().includes(pid) || this.jokerAnswers[pid])) {
       this.jokerAnswers[pid] = t;
+      if (draft) this.fin.delete(pid); else this.fin.add(pid);
       this.jokerPass.delete(pid);
     } else return;
     this.checkAllIn();
@@ -108,9 +111,9 @@ class Mastergoon extends Game {
 
   checkAllIn() {
     if (this.phase !== 'answering') return;
-    if (!this.mgAnswer && this.connected(this.masterId)) return;
-    if (this.participants().some((id) => this.connected(id) && !this.answers[id])) return;
-    if (this.jokerEligible().some((id) => this.connected(id) && !this.jokerPass.has(id) && !this.jokerAnswers[id])) return;
+    if (!this.mgFinal && this.connected(this.masterId)) return;
+    if (this.participants().some((id) => this.connected(id) && !this.fin.has(id))) return;
+    if (this.jokerEligible().some((id) => this.connected(id) && !this.jokerPass.has(id) && !this.fin.has(id))) return;
     this.cancel(this.timer);
     this.timer = this.after(600, () => this.closeAnswers());
   }
@@ -228,8 +231,8 @@ class Mastergoon extends Game {
   // ---------------------------------------------------------------- actions
   onAction(pid, msg) {
     switch (msg.type) {
-      case 'answer': this.submit(pid, msg.text, false); break;
-      case 'joker': this.submit(pid, msg.text, true); break;
+      case 'answer': this.submit(pid, msg.text, false, !!msg.draft); break;
+      case 'joker': this.submit(pid, msg.text, true, !!msg.draft); break;
       case 'jokerPass':
         if (this.phase === 'answering' && this.jokerEligible().includes(pid)) { this.jokerPass.add(pid); this.checkAllIn(); this.update(); }
         break;
@@ -259,8 +262,9 @@ class Mastergoon extends Game {
     }
     if (this.phase === 'answering') {
       v.answered = [
-        ...Object.keys(this.answers), ...Object.keys(this.jokerAnswers), ...(this.mgAnswer ? [this.masterId] : []),
+        ...this.fin, ...(this.mgFinal ? [this.masterId] : []),
       ];
+      v.mineFinal = isMg ? this.mgFinal : this.fin.has(pid);
       v.mine = isMg ? this.mgAnswer : (this.answers[pid] ?? this.jokerAnswers[pid] ?? null);
       v.canJoker = this.jokerEligible().includes(pid) || !!this.jokerAnswers[pid];
       v.jokerActive = !!this.jokerAnswers[pid];

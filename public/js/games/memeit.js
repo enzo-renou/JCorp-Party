@@ -58,7 +58,7 @@ export default function create(api) {
     el.querySelector('#me-ready')?.replaceChildren(v.ready ? '✏️ Modifier' : '✅ Valider ma légende');
     el.querySelector('#me-ready')?.classList.toggle('green', !v.ready);
     el.querySelector('#me-lock')?.classList.toggle('hidden', !v.ready);
-    el.querySelector('#me-reroll')?.toggleAttribute('disabled', !v.canReroll);
+    { const r = el.querySelector('#me-reroll'); if (r) { r.toggleAttribute('disabled', !v.canReroll); r.textContent = `🎲 Changer d’image (${v.rerollsLeft ?? 0})`; r.classList.toggle('hidden', v.mode === 'same'); } }
     const list = el.querySelector('#me-players');
     if (list) fill(list, Object.values(P()).filter((p) => !p.spectator).map((p) => h('span', { class: `av-tag ${v.readyIds.includes(p.id) ? 'done' : ''}` }, avatar(p.avatar, 'sm'), p.name, v.readyIds.includes(p.id) ? ' ✓' : '')));
   }
@@ -76,9 +76,9 @@ export default function create(api) {
     if (!b) { fill(t, h('div', { class: 'muted' }, 'Ajoute un texte avec le bouton ➕, puis fais-le glisser sur l’image.')); return; }
     const txt = h('input', { class: 'input', value: b.t, maxLength: 90, placeholder: 'Écris ta légende…', onInput: (e) => { b.t = e.target.value; const n = el.querySelector(`.mbox[data-i="${ed.sel}"]`); if (n) { n.textContent = b.t || 'Texte…'; n.classList.toggle('empty', !b.t); } saveSoon(); } });
     fill(t, txt,
-      h('div', { class: 'row wrap', style: { gap: '14px' } },
-        h('label', { class: 'muted' }, 'Taille ', h('input', { type: 'range', min: 3, max: 16, step: 0.5, value: b.s, onInput: (e) => { b.s = Number(e.target.value); const n = el.querySelector(`.mbox[data-i="${ed.sel}"]`); if (n) n.style.fontSize = `${b.s}cqw`; saveSoon(); } })),
-        h('label', { class: 'muted' }, 'Largeur ', h('input', { type: 'range', min: 20, max: 100, step: 5, value: b.w ?? 60, onInput: (e) => { b.w = Number(e.target.value); const n = el.querySelector(`.mbox[data-i="${ed.sel}"]`); if (n) n.style.width = `${b.w}%`; saveSoon(); } })),
+      h('div', { class: 'me-tools-row' },
+        h('label', { class: 'sld' }, h('span', {}, 'Taille'), h('input', { type: 'range', class: 'rng', min: 3, max: 16, step: 0.5, value: b.s, onInput: (e) => { b.s = Number(e.target.value); const n = el.querySelector(`.mbox[data-i="${ed.sel}"]`); if (n) n.style.fontSize = `${b.s}cqw`; saveSoon(); } })),
+        h('label', { class: 'sld' }, h('span', {}, 'Largeur'), h('input', { type: 'range', class: 'rng', min: 20, max: 100, step: 5, value: b.w ?? 60, onInput: (e) => { b.w = Number(e.target.value); const n = el.querySelector(`.mbox[data-i="${ed.sel}"]`); if (n) n.style.width = `${b.w}%`; saveSoon(); } })),
         h('button', { class: 'btn sm', onClick: () => { b.c = b.c === 'b' ? 'w' : 'b'; paint(); saveSoon(); } }, b.c === 'b' ? '⚫ Noir' : '⚪ Blanc'),
         h('button', { class: 'btn sm red', onClick: () => { ed.boxes.splice(ed.sel, 1); ed.sel = Math.min(ed.sel, ed.boxes.length - 1); paint(); saveSoon(); } }, '🗑️ Supprimer')));
     if (document.activeElement === document.body) txt.focus();
@@ -90,7 +90,7 @@ export default function create(api) {
         h('div', { id: 'me-lock', class: 'banner hidden' }, '✅ Légende validée ! Tu peux encore la modifier tant que les autres écrivent.'),
         h('div', { class: 'row wrap', style: { justifyContent: 'center', gap: '8px' } },
           h('button', { class: 'btn cyan sm', onClick: () => { if (ed.ready || ed.boxes.length >= 6) return; ed.boxes.push({ t: '', x: 50, y: 50, s: 8, c: 'w', w: 80 }); ed.sel = ed.boxes.length - 1; paint(); document.querySelector('#me-tools input')?.focus(); } }, '➕ Ajouter un texte'),
-          h('button', { class: 'btn sm', id: 'me-reroll', disabled: !v.canReroll, onClick: () => api.action({ type: 'reroll' }) }, '🎲 Autre image (1×)'),
+          h('button', { class: 'btn sm', id: 'me-reroll', disabled: !v.canReroll, onClick: () => api.action({ type: 'reroll' }) }, `🎲 Changer d’image (${v.rerollsLeft ?? 0})`),
           h('button', { class: 'btn green', id: 'me-ready', onClick: () => { if (ed.ready) { api.action({ type: 'unsubmit' }); return; } if (!ed.boxes.some((b) => b.t.trim())) return; clearTimeout(ed.timer); save('submit'); } }, '✅ Valider ma légende')),
         h('div', { id: 'me-tools', class: 'col' })),
       h('div', { class: 'spacer' }), h('div', { class: 'avs', id: 'me-players' }));

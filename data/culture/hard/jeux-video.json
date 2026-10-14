@@ -1,0 +1,96 @@
+[
+{
+"t": "text",
+"q": "Comment s'appelle la princesse dans la série « The Legend of Zelda » ?",
+"a": [
+"Zelda"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel studio a développé « The Witcher 3 » ?",
+"a": [
+"CD Projekt Red",
+"CD Projekt"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans quel jeu trouve-t-on la ville de Rapture ?",
+"a": [
+"BioShock",
+"Bioshock"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel jeu de FromSoftware sorti en 2022 se déroule dans les Terres Intermédiaires ?",
+"a": [
+"Elden Ring"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans Pokémon Rouge/Bleu, dans quelle ville se trouve l'arène du chef de la Team Rocket, Giovanni ?",
+"a": [
+"Jadielle",
+"Viridian City"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le nom du protagoniste de la série « Half-Life » ?",
+"a": [
+"Gordon Freeman",
+"Freeman"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "En quelle année est sorti le premier jeu « Minecraft » en version complète 1.0 ?",
+"a": [
+"2011"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quelle console Nintendo est sortie en 1990 au Japon sous le nom de Super Famicom ?",
+"a": [
+"Super Nintendo",
+"SNES"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le nom du studio créateur de « Hollow Knight » ?",
+"a": [
+"Team Cherry"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans « Red Dead Redemption 2 », comment s'appelle le chef de la bande de Van der Linde ?",
+"a": [
+"Dutch",
+"Dutch van der Linde"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel jeu indé de 2018 se déroule dans le monde souterrain grec avec Zagreus ?",
+"a": [
+"Hades"
+],
+"d": 3
+}
+]

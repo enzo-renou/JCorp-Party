@@ -1,0 +1,98 @@
+[
+{
+"t": "text",
+"q": "Qui a peint « Les Ménines » ?",
+"a": [
+"Vélasquez",
+"Velasquez",
+"Diego Velázquez",
+"Velazquez"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui a écrit « Les Fleurs du mal » ?",
+"a": [
+"Baudelaire",
+"Charles Baudelaire"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel peintre a réalisé « La Persistance de la mémoire » avec ses montres molles ?",
+"a": [
+"Dalí",
+"Dali",
+"Salvador Dalí",
+"Salvador Dali"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui a écrit « Voyage au bout de la nuit » ?",
+"a": [
+"Céline",
+"Celine",
+"Louis-Ferdinand Céline"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel architecte a conçu la Sagrada Família à Barcelone ?",
+"a": [
+"Gaudí",
+"Gaudi",
+"Antoni Gaudí"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui a peint « Le Radeau de la Méduse » ?",
+"a": [
+"Géricault",
+"Gericault",
+"Théodore Géricault"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel écrivain a écrit « Le Rouge et le Noir » ?",
+"a": [
+"Stendhal"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Dans quelle ville se trouve le musée de l'Ermitage ?",
+"a": [
+"Saint-Pétersbourg",
+"Saint Petersbourg"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui est l'auteur de « Les Misérables » ?",
+"a": [
+"Victor Hugo",
+"Hugo"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel peintre néerlandais a réalisé « La Jeune Fille à la perle » ?",
+"a": [
+"Vermeer",
+"Johannes Vermeer"
+],
+"d": 3
+}
+]

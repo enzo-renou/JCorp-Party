@@ -109,7 +109,8 @@ class Imposteur extends Game {
     const ms = this.connected(this.current) ? this.turnTime * 1000 : Math.min(this.turnTime * 1000, DISCONNECTED_TURN);
     this.endsAt = Date.now() + ms;
     const who = this.current;
-    this.turnTimer = this.after(ms, () => { if (this.phase === 'clues' && this.current === who) this.submitClue(who, '...'); });
+    this.clueDraft = '';
+    this.turnTimer = this.after(ms, () => { if (this.phase === 'clues' && this.current === who) this.submitClue(who, this.clueDraft || '...'); });
   }
 
   submitClue(pid, raw) {
@@ -194,11 +195,19 @@ class Imposteur extends Game {
     if (target === this.whiteId) {
       this.phase = 'whiteGuess';
       this.endsAt = Date.now() + WHITE_GUESS_TIME;
-      this.timer = this.after(WHITE_GUESS_TIME, () => this.whiteFailed(target, ''));
+      this.whiteDraft = '';
+      this.timer = this.after(WHITE_GUESS_TIME, () => this.whiteTimeout(target));
       this.update();
       return;
     }
     this.afterElimination(target);
+  }
+
+  whiteTimeout(pid) {
+    if (this.phase !== 'whiteGuess') return;
+    const guess = sanitize(this.whiteDraft || '', 40);
+    if (guess && isMatch(guess, [this.pair.normal], { fuzzy: false })) { this.cancel(this.timer); return this.end('white', 'M. WHITE A TROUVÉ LE MOT ! 😱 Il vole la victoire !', pid); }
+    this.whiteFailed(pid, guess);
   }
 
   whiteFailed(pid, guess) {
@@ -255,7 +264,10 @@ class Imposteur extends Game {
   onAction(pid, msg) {
     const isAlive = this.alive.has(pid);
     switch (msg.type) {
-      case 'clue': this.submitClue(pid, msg.text); break;
+      case 'clue':
+        if (msg.draft) { if (this.phase === 'clues' && pid === this.current) this.clueDraft = sanitize(msg.text, 20); }
+        else this.submitClue(pid, msg.text);
+        break;
       case 'decision':
         if (this.phase !== 'decision' || !isAlive) return;
         if (msg.choice !== 'vote' && msg.choice !== 'cycle') return;
@@ -278,6 +290,7 @@ class Imposteur extends Game {
       case 'whiteGuess': {
         if (this.phase !== 'whiteGuess' || pid !== this.whiteId) return;
         const guess = sanitize(msg.text, 40);
+        if (msg.draft) { this.whiteDraft = guess; return; }
         if (!guess) return;
         this.cancel(this.timer);
         if (isMatch(guess, [this.pair.normal], { fuzzy: false })) this.end('white', 'M. WHITE A TROUVÉ LE MOT ! 😱 Il vole la victoire !', pid);

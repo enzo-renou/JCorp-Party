@@ -1,0 +1,97 @@
+[
+{
+"t": "text",
+"q": "Quel album de Pink Floyd sorti en 1973 contient « Time » et « Money » ?",
+"a": [
+"The Dark Side of the Moon",
+"Dark Side of the Moon"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel rappeur français a sorti l'album « Dans la légende » en 2015 ?",
+"a": [
+"PNL"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le vrai prénom de Freddie Mercury ?",
+"a": [
+"Farrokh",
+"Farrokh Bulsara"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui a composé « Les Quatre Saisons » ?",
+"a": [
+"Vivaldi",
+"Antonio Vivaldi"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel groupe a sorti l'album « OK Computer » en 1997 ?",
+"a": [
+"Radiohead"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel DJ français est derrière l'album « Random Access Memories » (avec Pharrell Williams) ?",
+"a": [
+"Daft Punk"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel chanteur belge a écrit « Ne me quitte pas » ?",
+"a": [
+"Jacques Brel",
+"Brel"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel rappeur américain a sorti l'album « To Pimp a Butterfly » ?",
+"a": [
+"Kendrick Lamar",
+"Kendrick"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel compositeur est devenu sourd et a écrit la 9e Symphonie avec l'« Ode à la joie » ?",
+"a": [
+"Beethoven",
+"Ludwig van Beethoven"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel groupe a sorti « Nevermind » en 1991 ?",
+"a": [
+"Nirvana"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le vrai nom de l'artiste Stromae ?",
+"a": [
+"Paul Van Haver",
+"Van Haver"
+],
+"d": 3
+}
+]

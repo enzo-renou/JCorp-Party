@@ -12,7 +12,14 @@ const dir = path.join(__dirname, '..', '..', 'data', 'culture');
 for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort()) {
   const cat = file.replace('.json', '');
   JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8')).forEach((q, i) => {
-    const item = { id: `${cat}-${i}`, cat, t: q.t || 'text', q: q.q, a: q.a, emoji: q.emoji, wiki: q.wiki, wikis: q.wikis, hint: q.hint };
+    const item = { id: `${cat}-${i}`, cat, d: q.d || 1, t: q.t || 'text', q: q.q, a: q.a, emoji: q.emoji, wiki: q.wiki, wikis: q.wikis, hint: q.hint };
+    POOL.push(item);
+    BY_ID.set(item.id, item);
+  });
+  // questions « difficiles » (d:3) ajoutées à la même catégorie
+  const hf = path.join(dir, 'hard', file);
+  if (fs.existsSync(hf)) JSON.parse(fs.readFileSync(hf, 'utf8')).forEach((q, i) => {
+    const item = { id: `${cat}-h${i}`, cat, d: 3, t: q.t || 'text', q: q.q, a: q.a, emoji: q.emoji, wiki: q.wiki, wikis: q.wikis, hint: q.hint };
     POOL.push(item);
     BY_ID.set(item.id, item);
   });
@@ -27,6 +34,7 @@ class Culture extends Game {
     super(ctx, options);
     this.count = [10, 15, 20, 30].includes(Number(options.count)) ? Number(options.count) : 15;
     this.time = [20, 30, 45].includes(Number(options.time)) ? Number(options.time) : 25;
+    this.level = ['easy', 'mixed', 'hard'].includes(options.level) ? options.level : 'hard';
     this.cats = Array.isArray(options.cats) && options.cats.length ? options.cats : null;
     this.used = (ctx.memory.cultureUsed ||= new Set());
     this.questions = this.select(this.count);
@@ -35,17 +43,24 @@ class Culture extends Game {
     this.phase = 'starting';
     this.ok = [];          // ok[qi][pid] = bool
     this.endsAt = null;
+    this.fin = new Set(); // joueurs qui ont validé leur réponse à la question courante
   }
 
   select(n) {
-    const pool = this.cats ? POOL.filter((q) => this.cats.includes(q.cat)) : POOL;
+    let pool = this.cats ? POOL.filter((q) => this.cats.includes(q.cat)) : POOL;
+    // difficulté : « facile » = questions classiques, « difficile » = surtout des questions d:3 (+ quelques visuelles)
+    if (this.level === 'easy') pool = pool.filter((q) => q.d < 3);
+    else if (this.level === 'hard') {
+      const hard = pool.filter((q) => q.d >= 3 || q.t !== 'text');
+      if (hard.filter((q) => q.d >= 3).length >= Math.min(n, 8)) pool = hard;
+    }
     let fresh = pool.filter((q) => !this.used.has(q.id));
     if (fresh.length < n) { for (const q of pool) this.used.delete(q.id); fresh = [...pool]; }
     const perCatCap = this.cats && this.cats.length <= 2 ? n : null;
     // ~30 % de questions visuelles (rébus, 4 images 1 mot, qui est-ce ?) et pas plus de N par thème
     const special = shuffle(fresh.filter((q) => q.t !== 'text'));
     const texts = shuffle(fresh.filter((q) => q.t === 'text'));
-    const nSpecial = Math.min(special.length, Math.round(n * 0.3));
+    const nSpecial = Math.min(special.length, Math.round(n * (this.level === 'hard' ? 0.2 : 0.3)));
     const cap = perCatCap || Math.max(2, Math.ceil(n / 6));
     const perCat = {};
     const out = [];
@@ -66,6 +81,7 @@ class Culture extends Game {
     this.idx++;
     if (this.idx >= this.questions.length) return this.startReview();
     this.phase = 'question';
+    this.fin = new Set();
     this.endsAt = Date.now() + this.time * 1000;
     const i = this.idx;
     this.cancel(this.timer);
@@ -75,7 +91,7 @@ class Culture extends Game {
 
   checkAllAnswered() {
     const present = this.connectedIds();
-    if (present.length && present.every((id) => this.answers[id][this.idx])) {
+    if (present.length && present.every((id) => this.fin.has(id))) {
       const i = this.idx;
       this.after(900, () => { if (this.idx === i && this.phase === 'question') { this.cancel(this.timer); this.next(); } });
     }
@@ -111,8 +127,10 @@ class Culture extends Game {
       case 'answer': {
         if (this.phase !== 'question') return;
         const text = String(msg.text ?? '').replace(/\s+/g, ' ').trim().slice(0, 80);
-        if (!text) return;
+        if (!text && !msg.draft) return;
+        // brouillon : enregistré mais modifiable ; réponse validée : compte pour « tout le monde a répondu »
         this.answers[pid][this.idx] = text;
+        if (msg.draft) this.fin.delete(pid); else this.fin.add(pid);
         this.update();
         this.checkAllAnswered();
         break;
@@ -152,8 +170,9 @@ class Culture extends Game {
     const v = { phase: this.phase, idx: this.idx, total: this.questions.length, endsAt: this.endsAt, masterId: this.masterId, time: this.time };
     if (this.phase === 'question') {
       v.q = this.publicQ(this.questions[this.idx]);
-      v.answered = this.ids.filter((id) => this.answers[id][this.idx]);
+      v.answered = this.ids.filter((id) => this.fin.has(id));
       v.mine = this.answers[pid]?.[this.idx] || '';
+      v.mineFinal = this.fin.has(pid);
     } else if (this.phase === 'review' || this.phase === 'results') {
       v.items = this.questions.map((q, qi) => ({
         ...this.publicQ(q),

@@ -1,5 +1,5 @@
 // Qui est l'imposteur ? : indices, vote, M. White
-import { h, fill, avatar, clock, timerBar } from '../ui.js';
+import { h, fill, avatar, clock, timerBar, answerBox } from '../ui.js';
 
 const ROLE = { citizen: '👤 Citoyen', impostor: '🕵️ Imposteur', white: '⬜ M. White' };
 
@@ -46,17 +46,15 @@ export default function create(api) {
       em = h('button', { class: `btn ${v.emergency.clicked ? '' : 'red'}`, onClick: () => api.action({ type: 'emergency' }) }, `🚨 Réunion d'urgence ${v.emergency.count}/${v.emergency.required}`);
     }
     if (rebuild) {
-      clueInput = h('input', { class: 'input', placeholder: 'Ton indice (1 mot)…', maxLength: 20, autocomplete: 'off', spellcheck: false });
-      const send = () => { const t = clueInput.value.trim(); if (t) api.action({ type: 'clue', text: t }); };
-      clueInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') send(); });
+      clueInput = answerBox({ placeholder: 'Ton indice (1 mot)…', maxLength: 20, label: 'Envoyer', onSend: (text, draft) => api.action({ type: 'clue', text, draft }) });
       el.replaceChildren();
       fill(el, ...header(`Tour d'indices ${v.clueRound + 1}`, v, v.turnTime * 1000),
         v.banner ? h('div', { class: 'banner' }, v.banner) : null,
         h('div', { class: 'card col', style: { marginTop: '12px' } },
-          h('div', { id: 'imp-turn' }), orderChips, myTurn ? h('div', { class: 'answer-row' }, clueInput, h('button', { class: 'btn cyan', onClick: send }, 'Envoyer')) : null,
+          h('div', { id: 'imp-turn' }), orderChips, myTurn ? clueInput.el : null,
           h('div', { id: 'imp-em', class: 'center' })),
         h('div', { class: 'spacer' }), clueLog(v));
-      if (myTurn) setTimeout(() => clueInput.focus(), 50);
+      if (myTurn) clueInput.focus();
     }
     const t = el.querySelector('#imp-turn');
     if (t) fill(t, myTurn ? h('div', { class: 'qtext center' }, '✍️ À toi : donne un indice !') : h('div', { class: 'center' }, '⏳ C\'est le tour de ', who(v.current)));
@@ -66,29 +64,32 @@ export default function create(api) {
 
   function decision(v) {
     const k = `d${v.clueRound}`;
-    if (key === k && !v.answered) return;
     const rebuilt = key !== k; key = k;
-    if (!rebuilt && v.answered) { const s = el.querySelector('#imp-wait'); if (s) s.textContent = `✅ Choix envoyé (${v.decisionCount} vote(s))`; el.querySelectorAll('button[data-ch]').forEach((b) => b.disabled = true); return; }
-    fill(el, ...header('🤔 Et maintenant ?', v, v.voteTime * 1000),
-      h('div', { class: 'card col', style: { marginTop: '12px' } },
-        h('div', { class: 'center muted' }, 'Tout le monde a donné son indice. Que décidez-vous ?'),
-        h('div', { class: 'decide' },
-          h('button', { class: 'btn big pink', 'data-ch': 1, disabled: v.answered || !v.me?.alive, onClick: () => api.action({ type: 'decision', choice: 'vote' }) }, '🗳️ Passer au vote'),
-          h('button', { class: 'btn big cyan', 'data-ch': 1, disabled: v.answered || !v.me?.alive, onClick: () => api.action({ type: 'decision', choice: 'cycle' }) }, '🔁 Un autre tour d\'indices')),
-        h('div', { class: 'muted center', id: 'imp-wait' }, v.answered ? '✅ Choix envoyé' : 'La majorité l\'emporte.')),
-      h('div', { class: 'spacer' }), clueLog(v));
+    if (rebuilt) {
+      fill(el, ...header('🤔 Et maintenant ?', v, v.voteTime * 1000),
+        h('div', { class: 'card col', style: { marginTop: '12px' } },
+          h('div', { class: 'center muted' }, 'Tout le monde a donné son indice. Que décidez-vous ?'),
+          h('div', { class: 'decide' },
+            h('button', { class: 'btn big pink', id: 'dc-vote', onClick: () => api.action({ type: 'decision', choice: 'vote' }) }, '🗳️ Passer au vote'),
+            h('button', { class: 'btn big cyan', id: 'dc-cycle', onClick: () => api.action({ type: 'decision', choice: 'cycle' }) }, '🔁 Un autre tour d\'indices')),
+          h('div', { class: 'muted center', id: 'imp-wait' })),
+        h('div', { class: 'spacer' }), clueLog(v));
+    }
+    el.querySelectorAll('.decide button').forEach((b) => { b.disabled = !v.me?.alive; });
+    const w = el.querySelector('#imp-wait');
+    if (w) w.textContent = v.answered ? `✅ Choix enregistré (${v.decisionCount} réponse(s)) — tu peux encore en changer.` : 'La majorité l\'emporte.';
   }
 
   function voting(v) {
     const k = `v${v.clueRound}`;
     const rebuilt = key !== k; key = k;
     const players = P();
-    const can = v.me?.alive && !v.voted;
+    const can = !!v.me?.alive;
     const targets = v.alive.filter((id) => id !== api.me());
     if (rebuilt || true) {
       fill(el, ...header('🗳️ Qui est l\'imposteur ?', v, v.voteTime * 1000),
         h('div', { class: 'card col', style: { marginTop: '12px' } },
-          h('div', { class: 'muted center' }, v.voted ? `Tu as voté. En attente des autres (${v.progress.done}/${v.progress.total})…` : v.me?.alive ? 'Clique sur la personne que tu veux éliminer.' : 'Tu es éliminé : tu ne votes plus.'),
+          h('div', { class: 'muted center' }, v.voted ? `Vote enregistré (${v.progress.done}/${v.progress.total}) — tu peux encore changer d’avis.` : v.me?.alive ? 'Clique sur la personne que tu veux éliminer.' : 'Tu es éliminé : tu ne votes plus.'),
           h('div', { class: 'votegrid' }, targets.map((id) => {
             const lw = [...v.log].reverse().find((l) => l.pid === id && !l.timedOut);
             return h('button', { class: `vcard ${v.voted === id ? 'sel' : ''}`, disabled: !can, onClick: () => api.action({ type: 'vote', target: id }) }, avatar(players[id]?.avatar, 'lg'), h('div', {}, players[id]?.name), lw ? h('div', { class: 'lw' }, `« ${lw.word} »`) : null);
@@ -112,15 +113,13 @@ export default function create(api) {
     const me = api.me(); const isW = me === v.whiteId;
     const k = 'wg'; const rebuilt = key !== k; key = k;
     if (!rebuilt) return;
-    const input = h('input', { class: 'input', placeholder: 'Le mot des citoyens…', maxLength: 30, autocomplete: 'off', spellcheck: false });
-    const send = () => { const t = input.value.trim(); if (t) api.action({ type: 'whiteGuess', text: t }); };
-    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') send(); });
+    const gb = answerBox({ placeholder: 'Le mot des citoyens…', maxLength: 30, label: 'Proposer', onSend: (text, draft) => api.action({ type: 'whiteGuess', text, draft }) });
     fill(el, ...header('⬜ Dernière chance de M. White !', v, 30000),
       h('div', { class: 'card col', style: { marginTop: '12px' } },
         h('div', { class: 'center' }, who(v.whiteId), ' a été démasqué·e ! Il/elle peut gagner en devinant le mot des citoyens.'),
-        isW ? h('div', { class: 'answer-row' }, input, h('button', { class: 'btn pink', onClick: send }, 'Proposer')) : h('div', { class: 'center muted' }, '🤞 On croise les doigts…')),
+        isW ? gb.el : h('div', { class: 'center muted' }, '🤞 On croise les doigts…')),
       h('div', { class: 'spacer' }), clueLog(v));
-    if (isW) setTimeout(() => input.focus(), 50);
+    if (isW) gb.focus();
   }
 
   function result(v) {

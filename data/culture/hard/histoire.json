@@ -1,0 +1,110 @@
+[
+{
+"t": "text",
+"q": "En quelle année a eu lieu la bataille de Marignan ?",
+"a": [
+"1515"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui était le dernier empereur romain d'Occident, déposé en 476 ?",
+"a": [
+"Romulus Augustule",
+"Romulus Augustulus"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel traité de 1648 a mis fin à la guerre de Trente Ans ?",
+"a": [
+"Traité de Westphalie",
+"Westphalie",
+"Paix de Westphalie"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel roi de France est surnommé « le Roi-Soleil » ?",
+"a": [
+"Louis XIV"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "En quelle année est tombé le mur de Berlin ?",
+"a": [
+"1989"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel pharaon a fait construire la Grande Pyramide de Gizeh ?",
+"a": [
+"Khéops",
+"Kheops",
+"Khoufou"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel général carthaginois a traversé les Alpes avec des éléphants ?",
+"a": [
+"Hannibal",
+"Hannibal Barca"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quelle bataille de 1815 marque la défaite finale de Napoléon ?",
+"a": [
+"Waterloo"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel dieu grec est le dieu des mers ?",
+"a": [
+"Poséidon",
+"Poseidon"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel est le nom du navire sur lequel Magellan a débuté son tour du monde, dont seul Elcano est revenu ?",
+"a": [
+"Victoria",
+"La Victoria",
+"Trinidad"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Qui fut le premier empereur de Chine unifiée en 221 av. J.-C. ?",
+"a": [
+"Qin Shi Huang",
+"Qin Shihuang",
+"Shi Huangdi"
+],
+"d": 3
+},
+{
+"t": "text",
+"q": "Quel traité de 1494 a partagé le Nouveau Monde entre l'Espagne et le Portugal ?",
+"a": [
+"Traité de Tordesillas",
+"Tordesillas"
+],
+"d": 3
+}
+]
